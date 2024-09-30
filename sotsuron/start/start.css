@@ -250,7 +250,7 @@ html {
     padding-right: 0%;
 }
 
-.active {
+.lyric-line.active {
     color: black;
     font-weight: bold;
     font-size: 30px;

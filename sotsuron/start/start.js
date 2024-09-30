@@ -1,6 +1,7 @@
 'use strict'
 
 let player;
+/*
 let lyrics = [
     { time: 11, text: "새로운 시작은<br>新しい 始まりは", explain: 1 },
     { time: 13.3, text: "늘 <span class='highlight'>설레게</span> 하지<br>いつだって胸を高鳴らせる" },
@@ -54,14 +55,16 @@ let lyrics = [
     { time: 170.9, text: "다시 시작해<br>また始めるんだ"},
     { time: 173.4, text: ""}
 ];
+*/
 
-//lyricsContainer.addEventListener('click', (event) => {
-//    if (event.target.tagName === 'SPAN') {
-//    const clickedWord = event.target.textContent;
-//    console.log(clickedWord);
-//    }
-//});
-
+var data = [
+    {number: 1, time: 1},
+    {number: 2, time: 2},
+    {number: 3, time: 3},
+    {number: 4, time: 4},
+    {number: 5, time: 5},
+    {number: 6, time: 6}
+];
 let isUserScrolling = false;   // ユーザーがスクロール中かどうか
 let scrollTimeout;             // スクロールが止まった後のタイマー
 let autoScrollEnabled = true;  // 自動スクロールが有効かどうか
@@ -88,11 +91,12 @@ function onPlayerStateChange(event) {
     if (event.data == YT.PlayerState.PLAYING) {
         setInterval(() => {
             updateLyrics();
-            updateexplain();
+            //updateexplain();
         }, 100);
     }
 }
 
+/*
 function updateLyrics() {
     let currentTime = player.getCurrentTime();
     const g = document.getElementById("time2");
@@ -119,6 +123,14 @@ function updateLyrics() {
     // ユーザーがスクロールしていないかつ自動スクロールが有効な場合のみスクロール
     if (autoScrollEnabled == true){
         activeElement.scrollIntoView({ behavior: 'auto', block: 'center' });
+    }
+}*/
+
+function updateLyrics() {
+    let currentTime = player.getCurrentTime();
+    const x = 0;
+    if(currentTime >= 1 && currentTime <= 2){
+        console.log("hello");
     }
 }
 
