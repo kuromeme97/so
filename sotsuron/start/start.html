@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>卒論[start]</title>
+    <link href="start.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <!--ヘッダー-->
+    <header class="page-header-wrapper">
+        <div class="header__inner">
+            <button id="js-hamburger" type="button" class="hamburger" 
+                aria-controls="navigation" aria-expanded="false" aria-label="メニューを開く">
+                <span class="hamburger__line"></span>
+                <span class="hamburger__text"></span>
+            </button>
+            <div class="header__nav-area js-nav-area" id="navigation">
+                <nav id="js-global-navigation" class="global-navigation">
+                    <ul class="global-navigation__list">
+                        <li>
+                        <a href="test.start.html" class="global-navigation__link">
+                            TEST
+                        </a>
+                        </li>
+                    </ul>
+                <div id="js-focus-trap" tabindex="0"></div>
+                </nav>  
+            </div>
+            <img src="hint.jpg.jpg" class="hint">
+        </div>
+    </header>
+    <!--メイン要素-->
+    <main class="page-main-wrapper">
+        <!--動画-->
+        <div id="praimary">
+            <div class="video-container">
+                <div id="youtube-video"></div>
+            </div>
+            <div id="time2" hidden>duration</div>
+            <!--<div>가호 시작 (ガホ はじまり)</div>-->
+            <div id="explanation">
+                <div class="explanation-container">
+                    <p id="1">새로운 시작은</p>
+                    <p id="2">늘 <span class='highlight'>설레게</span> 하지</p>
+                    <p id="3">모든 걸 이겨낼 것처럼</p>
+                    <p id="4">시간을 뒤쫓는</p>
+                    <p id="5">시계바늘처럼</p>
+                    <p id="6">앞질러 <span class="highlight" onclick="mess()">가고 싶어 하지</span></p>
+                    <p id="7">그어 놓은 선을 넘어</p>
+                    <p id="8">저마다 삶을 향해</p>
+                </div>
+            </div>
+            </div>
+        </div>
+        <!--歌詞など-->
+        <div id="secondary">
+                <div id="secondary-inner">
+                    <div class="lyrics-container">
+                        <div id="lyrics">
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <script src="https://www.youtube.com/iframe_api"></script>
+        <script src="start.js"></script>
+    </main>
+</body>
+</html>

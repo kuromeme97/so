@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start Test</title>
+    <link href="test.start.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <!--ヘッダー-->
+    <header class="page-header-wrapper">
+        <div class="header__inner">
+            <button id="js-hamburger" type="button" class="hamburger" 
+                aria-controls="navigation" aria-expanded="false" aria-label="メニューを開く">
+                <span class="hamburger__line"></span>
+                <span class="hamburger__text"></span>
+            </button>
+            <div class="header__nav-area js-nav-area" id="navigation">
+                <nav id="js-global-navigation" class="global-navigation">
+                    <ul class="global-navigation__list">
+                        <li>
+                        <a href="start.html" class="global-navigation__link">
+                            MUSIC
+                        </a>
+                        </li>
+                    </ul>
+                <div id="js-focus-trap" tabindex="0"></div>
+                </nav>  
+            </div>
+        </div>
+    </header>
+    <!--メイン要素-->
+    <main class="page-main-wrapper">
+
+        <div id="issue">
+            <p class="number">第一問</p>
+            <p class="rev">下線部の動詞、形容詞の辞書形として正しいものを1～4の中からひとつ選びなさい。</p>
+            <p class="mondai">너무 <u>슬퍼서</u> 아무말도 못 했어요.</p>
+        </div>
+        <div class="answer">
+            <p class="abc">1.슬프다</p>
+            <p class="def">2.슬퍼서다</p>
+            <p class="ghi">3.슬푸다</p>
+            <p class="jkl">4.슬퍼다</p>
+        </div>
+        <div id="next">
+
+        </div>
+        <script src="test.start.js"></script>
+    </main>
+</body>
+</html>

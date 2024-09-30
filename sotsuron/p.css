@@ -1,0 +1,64 @@
+@charset "UTF-8";
+
+html {
+    font-size: 100%;
+}
+
+ul{
+    list-style: none;
+}
+
+.main-nav{
+    display: flex;
+}
+
+.page-main-wrapper{
+    display: flex;
+    justify-content: center;
+}
+
+#secondary{
+    width: 380px;
+    height: 480px;
+    border-radius: 10px;
+    border: 1px solid #000000;
+    margin-left: 20px;
+}
+
+#secondary-inner{
+    width: 375px;
+    height: 470px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    overflow-y: scroll;
+    scrollbar-color: gray white;
+}
+
+
+
+.lyrics-container{
+    display: flex;
+    justify-content: center;
+    padding-top: 100px;
+    text-align: center;
+}
+.lyric-line{
+    font-size: 20px;
+    color: gray;
+    display: flex;
+    justify-content: center;
+}
+
+.active {
+    color: black;
+    font-weight: bold;
+    font-size: 30px;
+    padding-top: 10px;
+    padding-bottom: 50px;
+}
+.highlight{
+    color: red;
+}
+.spacer{
+    height:50px;
+}
