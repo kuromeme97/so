@@ -1,69 +1,61 @@
 'use strict'
 
 let player;
-/*
-let lyrics = [
-    { time: 11, text: "새로운 시작은<br>新しい 始まりは", explain: 1 },
-    { time: 13.3, text: "늘 <span class='highlight'>설레게</span> 하지<br>いつだって胸を高鳴らせる" },
-    { time: 15.6, text: "모든 걸 이겨낼 것처럼<br>すべてに打ち勝てる気がするほど" },
-    { time: 20, text: "시간을 뒤쫓는<br>時間を追いかける" },
-    { time: 22, text: "시계바늘처럼<br>時計の針のように" },
-    { time: 24.4, text: `앞질러 <span class="highlight" onclick="mess()">가고 싶어 하지</span><br>追い抜いていきたがるんだ` }
-    ,
-    { time: 28.7, text: "그어 놓은 선을 넘어<br>引いておいたラインを越えて" },
-    { time: 32.7, text: "저마다 삶을 향해<br>それぞれの人生に向かって" },
-    { time: 37.3, text: "때론 원망도 하겠지<br>ときには恨んだりもするだろう" },
-    { time: 42, text: "그 선을 먼저 넘지 말라고<br>そのラインを先に越えるなと" }
-    ,
-    { time: 45.7, text: "I can fly the sky" },
-    { time: 47.8, text: "Never gonna stay" },
-    { time: 50.1, text: "내가 지쳐 쓰러질 때까진<br>僕がくたびれて倒れるときまでは" },
-    { time: 54.4, text: "어떤 이유도<br>どんな理由も" },
-    { time: 56.6, text: "어떤 변명도<br>どんな言い訳も" },
-    { time: 58.8, text: "지금 내겐 용기가 필요해<br>いまの僕にとっては勇気が必要なんだ" },
-    { time: 63, text: "♪"}
-    ,
-    { time: 64, text: "빛나지 않아도<br>輝かなくても"},
-    { time: 66, text: "내 꿈을 응원해<br>僕の夢を応援してくれ"},
-    { time: 68, text: "그 마지막을 가질 테니<br>最後には手に入れるはずだから"},
-    { time: 73, text: "부러진 것처럼<br>折れたかのように"},
-    { time: 75.2, text: "한 발로 뛰어도<br>片足で走っても"},
-    { time: 77.4, text: "난 나의 길을 갈 테니까<br>僕は僕の道を進むから"},
-    { time: 81.5, text: "지금 나를 위한 약속<br>今 自分のための約束"},
-    { time: 85.6, text: "멈추지 않겠다고<br>止まりはしないと"},
-    { time: 90.3, text: "또 하나를 앞지르면<br>またひとつ追い抜いたら"},
-    { time: 95.2, text: "곧 너의 뒤를 따라잡겠지<br>すぐ君の後ろに追いつくだろう"},
-    
-    { time: 98.5, text: "원하는 대로<br>望むままに"},
-    { time: 100.8, text: "다 가질 거야<br>全部手に入れるんだ"},
-    { time: 102.9, text: "그게 바로 내 꿈일 테니까<br>それが間違いなく僕の夢なんだから"},
-    { time: 107.3, text: "변한 건 없어<br>変わってないよ"},
-    { time: 109.6, text: "버티고 버텨<br>耐えて耐えて"},
-    { time: 111.8, text: "내 꿈은 더 단단해질 테니<br>僕の夢はもっと強固なものになるはずだから"},
-    { time: 116.1, text: "다시 시작해<br>また始めるんだ"},
-    { time: 118.3, text: "♪"}
-    ,
-    { time: 135.2, text: "다시는 나를 잃고 싶지 않아<br>二度と自分を失いたくない"},
-    { time: 143.9, text: "내 전부를 걸었으니까<br>僕の全てをかけたから"}
-    ,
-    { time: 153.3, text: "원하는 대로<br>望むままに"},
-    { time: 155.7, text: "다 가질 거야<br>全部手に入れるんだ"},
-    { time: 157.6, text: "그게 바로 내 꿈일 테니까<br>それが間違いなく僕の夢なんだから"},
-    { time: 162, text: "변한 건 없어<br>変わってないよ"},
-    { time: 164, text: "버티고 버텨<br>耐えて耐えて"},
-    { time: 166.5, text: "내 꿈은 더 단단해질 테니<br>僕の夢はもっと強固なものになるはずだから"},
-    { time: 170.9, text: "다시 시작해<br>また始めるんだ"},
-    { time: 173.4, text: ""}
-];
-*/
+var lyricsdata = [
+    {hid: "l-0", lyricstime: 0},
+    {hid: "l-1", lyricstime: 11},
+    {hid: "l-2", lyricstime: 13.3},
+    {hid: "l-3", lyricstime: 15.6},
+    {hid: "l-4", lyricstime: 20},
+    {hid: "l-5", lyricstime: 22},
+    {hid: "l-6", lyricstime: 24.4},
 
-var data = [
-    {number: 1, time: 1},
-    {number: 2, time: 2},
-    {number: 3, time: 3},
-    {number: 4, time: 4},
-    {number: 5, time: 5},
-    {number: 6, time: 6}
+    {hid: "l-7", lyricstime: 28.7},
+    {hid: "l-8", lyricstime: 32.7},
+    {hid: "l-9", lyricstime: 37.3},
+    {hid: "l-10", lyricstime: 42},
+
+    {hid: "l-11", lyricstime: 45.7},
+    {hid: "l-12", lyricstime: 47.8},
+    {hid: "l-13", lyricstime: 50.1},
+    {hid: "l-14", lyricstime: 54.4},
+    {hid: "l-15", lyricstime: 56.6},
+    {hid: "l-16", lyricstime: 58.8},
+    {hid: "l-17", lyricstime: 63},
+
+    {hid: "l-18", lyricstime: 64},
+    {hid: "l-19", lyricstime: 66},
+    {hid: "l-20", lyricstime: 68},
+    {hid: "l-21", lyricstime: 73},
+    {hid: "l-22", lyricstime: 75.2},
+    {hid: "l-23", lyricstime: 77.4},
+
+    {hid: "l-24", lyricstime: 81.5},
+    {hid: "l-25", lyricstime: 85.6},
+    {hid: "l-26", lyricstime: 90.3},
+    {hid: "l-27", lyricstime: 95.2},
+
+    {hid: "l-28", lyricstime: 98.5},
+    {hid: "l-29", lyricstime: 100.8},
+    {hid: "l-30", lyricstime: 102.9},
+    {hid: "l-31", lyricstime: 107.3},
+    {hid: "l-32", lyricstime: 109.6},
+    {hid: "l-33", lyricstime: 111.8},
+    {hid: "l-34", lyricstime: 116.1},
+    {hid: "l-35", lyricstime: 118.3},
+
+    {hid: "l-36", lyricstime: 135.2},
+    {hid: "l-37", lyricstime: 143.9},
+
+    {hid: "l-38", lyricstime: 153.3},
+    {hid: "l-39", lyricstime: 155.7},
+    {hid: "l-40", lyricstime: 157.6},
+    {hid: "l-41", lyricstime: 162},
+    {hid: "l-42", lyricstime: 164},
+    {hid: "l-43", lyricstime: 166.5},
+    {hid: "l-44", lyricstime: 170.9},
+    {hid: "l-45", lyricstime: 173.4},
+    {hid: "l-46", lyricstime: 300}
 ];
 let isUserScrolling = false;   // ユーザーがスクロール中かどうか
 let scrollTimeout;             // スクロールが止まった後のタイマー
@@ -128,9 +120,22 @@ function updateLyrics() {
 
 function updateLyrics() {
     let currentTime = player.getCurrentTime();
-    const x = 0;
-    if(currentTime >= 1 && currentTime <= 2){
-        console.log("hello");
+    const before = document.querySelectorAll('.active');
+    before.forEach(before => {
+        before.classList.remove("active");
+    });
+    let activeElement = null;
+    for (let i = 0; i < lyricsdata.length - 1; i++) {
+        if (currentTime >= lyricsdata[i].lyricstime && currentTime < lyricsdata[i + 1].lyricstime) {
+            let now = document.getElementById(lyricsdata[i].hid);
+            activeElement = document.getElementById(lyricsdata[i].hid);
+            now.classList.add('active');
+            break;
+        }
+    }
+    // ユーザーがスクロールしていないかつ自動スクロールが有効な場合のみスクロール
+    if (autoScrollEnabled == true){
+        activeElement.scrollIntoView({ behavior: 'smooth', block: 'center',});
     }
 }
 
@@ -214,3 +219,7 @@ const backgroundFix = (bool) => {
 focusTrap.addEventListener("focus", (e) => {
     hamburger.focus();
 });
+
+function mess(){
+    //ここにクリック時のものを書く
+}
