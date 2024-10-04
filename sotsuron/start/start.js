@@ -88,36 +88,6 @@ function onPlayerStateChange(event) {
     }
 }
 
-/*
-function updateLyrics() {
-    let currentTime = player.getCurrentTime();
-    const g = document.getElementById("time2");
-    g.textContent = currentTime;
-
-    let lyricsContainer = document.getElementById('lyrics');
-    lyricsContainer.innerHTML = '';
-
-    let activeElement = null;
-
-    lyrics.forEach((line, index) => {
-        let div = document.createElement('p');
-        div.className = 'lyric-line';
-        div.innerHTML = line.text;
-
-        if (currentTime >= line.time && (index === lyrics.length - 1 || currentTime < lyrics[index + 1].time)) {
-            div.classList.add('active');
-            activeElement = div;
-        }
-
-        lyricsContainer.appendChild(div);
-    });
-
-    // ユーザーがスクロールしていないかつ自動スクロールが有効な場合のみスクロール
-    if (autoScrollEnabled == true){
-        activeElement.scrollIntoView({ behavior: 'auto', block: 'center' });
-    }
-}*/
-
 function updateLyrics() {
     let currentTime = player.getCurrentTime();
     const before = document.querySelectorAll('.active');
@@ -129,24 +99,14 @@ function updateLyrics() {
         if (currentTime >= lyricsdata[i].lyricstime && currentTime < lyricsdata[i + 1].lyricstime) {
             let now = document.getElementById(lyricsdata[i].hid);
             activeElement = document.getElementById(lyricsdata[i].hid);
-            now.classList.add('active');
+            now.classList.add('active');// ユーザーがスクロールしていないかつ自動スクロールが有効な場合のみスクロール
+            if (autoScrollEnabled == true){
+                activeElement.scrollIntoView({ behavior: 'smooth', block: 'center',});
+            }
             break;
         }
     }
-    // ユーザーがスクロールしていないかつ自動スクロールが有効な場合のみスクロール
-    if (autoScrollEnabled == true){
-        activeElement.scrollIntoView({ behavior: 'smooth', block: 'center',});
-    }
-}
-
-
-function updateexplain(){
-    let ct = player.getCurrentTime();
-    let lt = document.getElementById(ct);
-    if (currentTime >= line.time && (index === lyrics.length - 1 || currentTime < lyrics[index + 1].time)) {
-        lt.classList.add('highlight');
-    }
-
+    
 }
 
 // ページロード後にスクロールイベントを設定
@@ -163,9 +123,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 3000);  // 3秒
     });
 });
-
-
-
 
 
 const backgroundFix = (bool) => {
@@ -220,6 +177,25 @@ focusTrap.addEventListener("focus", (e) => {
     hamburger.focus();
 });
 
-function mess(){
+const hintimg = document.getElementById("hintImage");
+const movingImage = document.getElementById('movingImage');
+let isShown = false;
+hintimg.addEventListener('click', () => {
+    console.log('押されました');
+    isShown = !isShown; // フラグを反転
+    if (isShown) {
+        console.log('表示される');
+        movingImage.classList.add('show');
+    } else {
+        console.log('表示消える');
+        movingImage.classList.remove('show');
+    }
+});
+
+function explain(element){
     //ここにクリック時のものを書く
+    console.log(element.textContent);
+    const clickword = document.getElementById("word");
+    clickword.textContent=element.textContent;
+
 }

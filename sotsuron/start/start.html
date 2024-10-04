@@ -27,7 +27,8 @@
                 <div id="js-focus-trap" tabindex="0"></div>
                 </nav>  
             </div>
-            <img src="../image/hint.jpg.jpg" class="hint">
+            <img src="../image/hint.jpg.jpg" alt="hint" id="hintImage" class="hint-image">
+            <img src="../image/moving_image.png" alt="動く画像" class="moving-image" id="movingImage">
         </div>
     </header>
     <!--メイン要素-->
@@ -41,7 +42,11 @@
             <!--<div>가호 시작 (ガホ はじまり)</div>-->
             <div id="explanation">
                 <div class="explanation-container">
-                    
+                    <div id="word-container">
+                        <p id="word" class="word-font"></p>
+                    </div>
+                    <div id="basic">   
+                    </div>
                 </div>
             </div>
             </div>
@@ -51,20 +56,20 @@
                 <div id="secondary-inner">
                     <div class="lyrics-container">
                         <div id="lyrics">
-                             <!--1-A-->
+                            <!--1-A-->
                             <p id="l-0" class="lyric-line active">♪</p>
                             <p id="l-1" class="lyric-line">새로운 시작은<br>新しい 始まりは</p>
-                            <p id="l-2" class="lyric-line">늘 <span class='highlight' onclick="mess()">설레게</span> 하지<br>いつだって胸を高鳴らせる</p>
-                            <p id="l-3" class="lyric-line">모든 걸 이겨낼 것처럼<br>すべてに打ち勝てる気がするほど</p>
-                            <p id="l-4" class="lyric-line">시간을 뒤쫓는<br>時間を追いかける</p>
+                            <p id="l-2" class="lyric-line">늘 설레게 하지<br>いつだって胸を高鳴らせる</p>
+                            <p id="l-3" class="lyric-line">모든 걸 <span class='highlight' onclick="explain(this)">이겨낼</span> 것처럼<br>すべてに打ち勝てる気がするほど</p>
+                            <p id="l-4" class="lyric-line">시간을 <span class='highlight' onclick="explain(this)">뒤쫓는</span><br>時間を追いかける</p>
                             <p id="l-5" class="lyric-line">시계바늘처럼<br>時計の針のように</p>
-                            <p id="l-6" class="lyric-line">앞질러 <span class="highlight" onclick="mess()">가고 싶어 하지</span><br>追い抜いていきたがるんだ</p>
-                             <!--1-B-->
-                            <p id="l-7" class="lyric-line">그어 놓은 선을 넘어<br>引いておいたラインを越えて</p>
-                            <p id="l-8" class="lyric-line">저마다 삶을 향해<br>それぞれの人生に向かって</p>
-                            <p id="l-9" class="lyric-line">때론 원망도 하겠지<br>ときには恨んだりもするだろう</p>
+                            <p id="l-6" class="lyric-line">앞질러 <span class="highlight" onclick="explain(this)">가고 싶어 하지</span><br>追い抜いていきたがるんだ</p>
+                            <!--1-B-->
+                            <p id="l-7" class="lyric-line">그어 놓은 선을 <span class="highlight" onclick="explain(this)">넘어</span><br>引いておいたラインを越えて</p>
+                            <p id="l-8" class="lyric-line">저마다 삶을 <span class="highlight" onclick="explain(this)">향해</span><br>それぞれの人生に向かって</p>
+                            <p id="l-9" class="lyric-line">때론 원망도 <span class="highlight" onclick="explain(this)">하겠지</span><br>ときには恨んだりもするだろう</p>
                             <p id="l-10" class="lyric-line">그 선을 먼저 넘지 말라고<br>そのラインを先に越えるなと</p>
-                             <!--1-S-->
+                            <!--1-S-->
                             <p id="l-11" class="lyric-line">I can fly the sky</p>
                             <p id="l-12" class="lyric-line">Never gonna stay</p>
                             <p id="l-13" class="lyric-line">내가 지쳐 쓰러질 때까진<br>僕がくたびれて倒れるときまでは</p>
@@ -72,19 +77,19 @@
                             <p id="l-15" class="lyric-line">어떤 변명도<br>どんな言い訳も</p>
                             <p id="l-16" class="lyric-line">지금 내겐 용기가 필요해<br>いまの僕にとっては勇気が必要なんだ</p>
                             <p id="l-17" class="lyric-line">♪</p>
-                             <!--2-A-->
+                            <!--2-A-->
                             <p id="l-18" class="lyric-line">빛나지 않아도<br>輝かなくても</p>
                             <p id="l-19" class="lyric-line">내 꿈을 응원해<br>僕の夢を応援してくれ</p>
                             <p id="l-20" class="lyric-line">그 마지막을 가질 테니<br>最後には手に入れるはずだから</p>
                             <p id="l-21" class="lyric-line">부러진 것처럼<br>折れたかのように</p>
                             <p id="l-22" class="lyric-line">한 발로 뛰어도<br>片足で走っても</p>
                             <p id="l-23" class="lyric-line">난 나의 길을 갈 테니까<br>僕は僕の道を進むから</p>
-                             <!--2-B-->
+                            <!--2-B-->
                             <p id="l-24" class="lyric-line">지금 나를 위한 약속<br>今 自分のための約束</p>
                             <p id="l-25" class="lyric-line">멈추지 않겠다고<br>止まりはしないと</p>
                             <p id="l-26" class="lyric-line">또 하나를 앞지르면<br>またひとつ追い抜いたら</p>
                             <p id="l-27" class="lyric-line">곧 너의 뒤를 따라잡겠지<br>すぐ君の後ろに追いつくだろう</p>
-                             <!--2-S-->
+                            <!--2-S-->
                             <p id="l-28" class="lyric-line">원하는 대로<br>望むままに</p>
                             <p id="l-29" class="lyric-line">다 가질 거야<br>全部手に入れるんだ</p>
                             <p id="l-30" class="lyric-line">그게 바로 내 꿈일 테니까<br>それが間違いなく僕の夢なんだから</p>
@@ -93,10 +98,10 @@
                             <p id="l-33" class="lyric-line">내 꿈은 더 단단해질 테니<br>僕の夢はもっと強固なものになるはずだから</p>
                             <p id="l-34" class="lyric-line">다시 시작해<br>また始めるんだ</p>
                             <p id="l-35" class="lyric-line">♪</p>
-                             <!--C-->
+                            <!--C-->
                             <p id="l-36" class="lyric-line">다시는 나를 잃고 싶지 않아<br>二度と自分を失いたくない</p>
                             <p id="l-37" class="lyric-line">내 전부를 걸었으니까<br>僕の全てをかけたから</p>
-                             <!--L-S-->
+                            <!--L-S-->
                             <p id="l-38" class="lyric-line">원하는 대로<br>望むままに</p>
                             <p id="l-39" class="lyric-line">다 가질 거야<br>全部手に入れるんだ</p>
                             <p id="l-40" class="lyric-line">그게 바로 내 꿈일 테니까<br>それが間違いなく僕の夢なんだから</p>
