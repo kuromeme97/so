@@ -166,10 +166,22 @@ html {
     color: #172e59;
 }
 
-.hint{
+.hint-image{
     margin: 0 0 0 auto;
     height: 100%;
     width: 5%;
+}
+.moving-image {
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    transform: translateY(-50%);
+    transition: right 1s ease-in-out;
+    visibility: hidden;
+}
+.show {
+    right: 0;
+    visibility: visible;
 }
 
 /*メイン*/
@@ -212,6 +224,14 @@ html {
     overflow-y: scroll;
     scrollbar-color: gray white;
 }
+#word-container{
+    height: 50px;
+    width: 50%;
+    border-bottom: solid #000000;
+}
+.word-font{
+    font-size: 30px;
+}
 
 
 /*セカンダリー*/
@@ -219,7 +239,7 @@ html {
     width: 100%;
     height: 80vh;
     background-color: #eee;
-    padding: 10px;
+    padding: 20px;
 }
 
 #secondary-inner{
@@ -227,22 +247,20 @@ html {
     height: 100%;
     margin-top: 5px;
     margin-bottom: 5px;
-    overflow-y: scroll;
-    scrollbar-color: gray white;
+    overflow: scroll;
+}#secondary-inner::-webkit-scrollbar {
+    display: none;
 }
 .lyrics-container{
     width: 100%;
     height: 100%;
-    display: flex;
-    justify-content: center;
-    padding-top: 40%;
     text-align: center;
+    padding-top: 300px;
+    padding-bottom: 300px;
 }
 .lyric-line{
     font-size: 30px;
     color: gray;
-    display: flex;
-    justify-content: center;
 }
 
 #lyrics{
@@ -250,7 +268,7 @@ html {
     padding-right: 0%;
 }
 
-.active {
+.lyric-line.active {
     color: black;
     font-weight: bold;
     font-size: 30px;
