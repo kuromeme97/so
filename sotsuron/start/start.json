@@ -1,0 +1,11 @@
+[
+    {
+        "words":[
+            {"korean":"이기다","classification":2,"japan":"勝つ","haeyo":"이겨요"},
+            {"korean":"내다","classification":1,"japan":"外に出る","haeyo":"내다"}
+        ],
+        "ends":[
+            {"korean":"ㄹ것","japan":"こと。の。もの。"}
+        ]
+    }   
+]
