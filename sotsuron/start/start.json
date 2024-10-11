@@ -79,6 +79,17 @@
                 "answer_d":""
             },
             {
+                "korean":"고 싶다",
+                "classification":"4",
+                "japan":"～したい",
+                "haeyo":"",
+                "question":"",
+                "answer_a":"",
+                "answer_b":"",
+                "answer_c":"",
+                "answer_d":""
+            },
+            {
                 "korean":"긋다",
                 "classification":"5(ㅅ変則活用)",
                 "japan":"(線などを)引く",
@@ -116,17 +127,6 @@
                 "classification":"1",
                 "japan":"～に向かう",
                 "haeyo":"향해요",
-                "question":"",
-                "answer_a":"",
-                "answer_b":"",
-                "answer_c":"",
-                "answer_d":""
-            },
-            {
-                "korean":"넘다",
-                "classification":"",
-                "japan":"",
-                "haeyo":"",
                 "question":"",
                 "answer_a":"",
                 "answer_b":"",
@@ -355,10 +355,10 @@
             }
         ],
         "ends":[
+            {"korean":"abc","tence":"konnitiwa","japan":"なにもありません"},
             {"korean":"게","tence":"現在","japan":"～のように"},
             {"korean":"ㄹ것","tence":"未来","japan":"こと。の。もの。"},
-            {"korean":"지","tence":"未来","japan":"確認、推量の意味"},
-            {"korean":"고 싶다","tence":"未来","japan":"～したい"}
+            {"korean":"지","tence":"未来","japan":"確認、推量の意味"}
         ]
     }   
 ]
