@@ -45,8 +45,27 @@
                     <div id="word-container">
                         <p id="word" class="word-font"></p>
                     </div>
-                    <div id="basic">   
+                    <div id="basic-container">
+                        <p id="basic"></p>   
                     </div>
+                    <div id="template-container">
+                        <template id="template-words">
+                            <div style="display: none;">
+                                <h2><span id="display-words"></span>:分類<span id="classification"></span></h2>
+                                <p class="indented">意味：<span id="meaning"></span></p>
+                                <p class="indented">へヨ体:<span id="simple"></span></p>
+                            </div>
+                        </template>
+                        <template id="template-ends">
+                            <div style="display: none;">
+                                <h2><span id="display-words"></span>:接続語尾</h2>
+                                <p class="indented">意味：<span id="meaning"></span></p>
+                            </div>
+                        </template>
+                    </div>
+                    <div id="words-container">
+                    </div>
+                    
                 </div>
             </div>
             </div>
@@ -59,23 +78,23 @@
                             <!--1-A-->
                             <p id="l-0" class="lyric-line active">♪</p>
                             <p id="l-1" class="lyric-line">새로운 시작은<br>新しい 始まりは</p>
-                            <p id="l-2" class="lyric-line">늘 설레게 하지<br>いつだって胸を高鳴らせる</p>
-                            <p id="l-3" class="lyric-line">모든 걸 <span class='highlight' onclick="explain(this)">이겨낼</span> 것처럼<br>すべてに打ち勝てる気がするほど</p>
-                            <p id="l-4" class="lyric-line">시간을 <span class='highlight' onclick="explain(this)">뒤쫓는</span><br>時間を追いかける</p>
+                            <p id="l-2" class="lyric-line">늘 <span class='highlight' onclick="explain(this)" data-words="설레다" data-ends="지">설레게</span>  <span class='highlight' onclick="explain(this)" data-words="하다" data-ends="지">하지</span><br>いつだって胸を高鳴らせる</p>
+                            <p id="l-3" class="lyric-line">모든 걸 <span class='highlight' onclick="explain(this)" data-words="이기다,내다" data-ends="ㄹ것">이겨낼 것</span>처럼<br>すべてに打ち勝てる気がするほど</p>
+                            <p id="l-4" class="lyric-line">시간을 <span class='highlight' onclick="explain(this)"data-words="뒤쫓다" data-ends="는">뒤쫓는</span><br>時間を追いかける</p>
                             <p id="l-5" class="lyric-line">시계바늘처럼<br>時計の針のように</p>
-                            <p id="l-6" class="lyric-line">앞질러 <span class="highlight" onclick="explain(this)">가고 싶어 하지</span><br>追い抜いていきたがるんだ</p>
+                            <p id="l-6" class="lyric-line"><span class='highlight' onclick="explain(this)" data-words="앞지르다,가다" data-ends="고 싶다">앞질러 가고 싶어</span> <span class='highlight' onclick="explain(this)" data-words="하다" data-ends="지">하지</span><br>追い抜いていきたがるんだ</p>
                             <!--1-B-->
-                            <p id="l-7" class="lyric-line">그어 놓은 선을 <span class="highlight" onclick="explain(this)">넘어</span><br>引いておいたラインを越えて</p>
+                            <p id="l-7" class="lyric-line"><span class='highlight' onclick="explain(this)" data-words="" data-ends="">그어 놓은</span> 선을 <span class="highlight" onclick="explain(this)">넘어</span><br>引いておいたラインを越えて</p>
                             <p id="l-8" class="lyric-line">저마다 삶을 <span class="highlight" onclick="explain(this)">향해</span><br>それぞれの人生に向かって</p>
                             <p id="l-9" class="lyric-line">때론 원망도 <span class="highlight" onclick="explain(this)">하겠지</span><br>ときには恨んだりもするだろう</p>
-                            <p id="l-10" class="lyric-line">그 선을 먼저 넘지 말라고<br>そのラインを先に越えるなと</p>
+                            <p id="l-10" class="lyric-line">그 선을 먼저 <span class='highlight' onclick="explain(this)" data-words="" data-ends="">넘지 말라고</span><br>そのラインを先に越えるなと</p>
                             <!--1-S-->
                             <p id="l-11" class="lyric-line">I can fly the sky</p>
                             <p id="l-12" class="lyric-line">Never gonna stay</p>
-                            <p id="l-13" class="lyric-line">내가 지쳐 쓰러질 때까진<br>僕がくたびれて倒れるときまでは</p>
+                            <p id="l-13" class="lyric-line">내가 <span class='highlight' onclick="explain(this)" data-words="" data-ends="">지쳐 쓰러질</span> 때까진<br>僕がくたびれて倒れるときまでは</p>
                             <p id="l-14" class="lyric-line">어떤 이유도<br>どんな理由も</p>
                             <p id="l-15" class="lyric-line">어떤 변명도<br>どんな言い訳も</p>
-                            <p id="l-16" class="lyric-line">지금 내겐 용기가 필요해<br>いまの僕にとっては勇気が必要なんだ</p>
+                            <p id="l-16" class="lyric-line">지금 내겐 용기가 <span class='highlight' onclick="explain(this)" data-words="" data-ends="">필요해</span><br>いまの僕にとっては勇気が必要なんだ</p>
                             <p id="l-17" class="lyric-line">♪</p>
                             <!--2-A-->
                             <p id="l-18" class="lyric-line">빛나지 않아도<br>輝かなくても</p>
