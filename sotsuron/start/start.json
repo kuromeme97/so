@@ -1,0 +1,24 @@
+[
+    {
+        "words":[
+            {"korean":"설레다","classification":"2","japan":"ときめく","haeyo":"설레요"},
+            {"korean":"하다","classification":"1","japan":"する","haeyo":"해요"},
+            {"korean":"이기다","classification":"2","japan":"勝つ","haeyo":"이겨요"},
+            {"korean":"내다","classification":"1","japan":"外に出る","haeyo":"내다"},
+            {"korean":"뒤쫓다","classification":"2","japan":"後を追う","haeyo":"뒤쫓아요"},
+            {"korean":"앞지르다","classification":"5(으変則活用)","japan":"追い越す","haeyo":"앞지러요"},
+            {"korean":"가다","classification":"1","japan":"行く","haeyo":"가요"},
+            {"korean":"긋다","classification":"5(ㅅ変則活用)","japan":"(線などを)引く","haeyo":"그어요"},
+            {"korean":"놓다","classification":"3","japan":"置く","haeyo":"놓아요"},
+            {"korean":"넘다","classification":"4","japan":"越える","haeyo":"넘어요"},
+            {"korean":"향하다","classification":"1","japan":"～に向かう","haeyo":"향해요"}
+        ],
+        "ends":[
+            {"korean":"ㄹ것","japan":"こと。の。もの。"},
+            {"korean":"는","japan":"連用形接続"},
+            {"korean":"게","japan":"～のように"},
+            {"korean":"지","japan":"確認、推量の意味"},
+            {"korean":"고 싶다","japan":"～したい"}
+        ]
+    }   
+]

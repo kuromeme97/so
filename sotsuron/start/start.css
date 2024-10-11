@@ -276,6 +276,12 @@ html {
     padding-bottom: 10px;/*日本語歌詞を一行のみにするならここのピクセルを変更*/
 }
 
+.highlight:hover{
+    color: black;
+}
 .lyrics-container .active .highlight {
     color: red; /* ハイライトの色を指定 */
+}
+.lyrics-container .active .highlight:hover{
+    color: #f0908d;
 }
