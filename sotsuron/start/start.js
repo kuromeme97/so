@@ -232,9 +232,10 @@ function explain(element){
     const clickword = document.getElementById("word");
     const clickbasic = document.getElementById("basic");
     const wordsCon = document.getElementById("words-container");
+    wordsCon.innerHTML = '';
     const splitwords = element.dataset.words.split(',');//文字を分割
-    const ends = element.dataset.ends;
-    const joinedwords = splitwords.join("+") + "+" + ends;//文字表示
+    const splitends = element.dataset.ends.split(',');
+    const joinedwords = splitwords.join("+") + "+" + splitends.join("+");//文字表示
 
     clickword.textContent = element.textContent;//クリックした文字を表示
     clickbasic.textContent = joinedwords;//結合した単語同士を表示
@@ -242,7 +243,6 @@ function explain(element){
     for (let i = 0; i < splitwords.length; i++) {
         //テンプレート複製
         const template_words = document.getElementById("template-words");
-        console.log(template_words);
         const clone_words = template_words.content.cloneNode(true);
         // 以下、複製した要素の処理
         const wordToFind = splitwords[i];
@@ -264,21 +264,29 @@ function explain(element){
     }
 
     //語尾があるかどうか
-    if(ends){
-        console.log(ends);
-        const template_ends = document.getElementById("template-ends");
-        const clone_ends = template_ends.content.cloneNode(true);
-        const result = findend(explain_json, ends);
-        console.log(result);
-        if(result){
-            const displaywords_place = clone_ends.querySelector('#display-words');
-            displaywords_place.textContent = result.korean;
-            const meaning_place = clone_ends.querySelector('#meaning');
-            meaning_place.textContent = result.japan;
-        }
-        clone_ends.querySelector('div').style.display = 'block';
-        document.getElementById('words-container').appendChild(clone_ends);
-    }else{
+    if(splitends){
+        for (let i = 0; i < splitends.length; i++) {
+            //テンプレート複製
+            const template_ends = document.getElementById("template-ends");
+            const clone_ends = template_ends.content.cloneNode(true);
+            // 以下、複製した要素の処理
+            const endToFind = splitends[i];
+            console.log(splitends[i]);
+            console.log(endToFind);
+            const result = findend(explain_json, endToFind);
+            console.log(result);
+            if (result) {
+                const displaywords_place = clone_ends.querySelector('#display-words');
+                displaywords_place.textContent = result.korean;
+                const meaning_place = clone_ends.querySelector('#meaning');
+                meaning_place.textContent = result.japan;
+            } else {
+                console.log("result が null または undefined です");
+            }
+            clone_ends.querySelector('div').style.display = 'block';
+            document.getElementById('words-container').appendChild(clone_ends);
+        } 
+    } else {
         console.log("語尾はありません。");
     }
 }
