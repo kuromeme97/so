@@ -235,6 +235,7 @@ function explain(element){
     wordsCon.innerHTML = '';
     const splitwords = element.dataset.words.split(',');//文字を分割
     const splitends = element.dataset.ends.split(',');
+    console.log("ends" + splitends);
     const joinedwords = splitwords.join("+") + "+" + splitends.join("+");//文字表示
 
     clickword.textContent = element.textContent;//クリックした文字を表示
@@ -274,17 +275,21 @@ function explain(element){
             console.log(splitends[i]);
             console.log(endToFind);
             const result = findend(explain_json, endToFind);
-            console.log(result);
             if (result) {
-                const displaywords_place = clone_ends.querySelector('#display-words');
-                displaywords_place.textContent = result.korean;
-                const meaning_place = clone_ends.querySelector('#meaning');
-                meaning_place.textContent = result.japan;
+                if(result.korean !== 'abc'){
+                    const displaywords_place = clone_ends.querySelector('#display-words');
+                    displaywords_place.textContent = result.korean;
+                    const tence_place = clone_ends.querySelector('#tence');
+                    tence_place.textContent = result.tence;
+                    const meaning_place = clone_ends.querySelector('#meaning');
+                    meaning_place.textContent = result.japan;
+                    
+                    clone_ends.querySelector('div').style.display = 'block';
+                    document.getElementById('words-container').appendChild(clone_ends);
+                }
             } else {
                 console.log("result が null または undefined です");
             }
-            clone_ends.querySelector('div').style.display = 'block';
-            document.getElementById('words-container').appendChild(clone_ends);
         } 
     } else {
         console.log("語尾はありません。");
