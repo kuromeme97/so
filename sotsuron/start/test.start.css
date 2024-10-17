@@ -1,40 +1,20 @@
 @charset "UTF-8";
-html {
-    font-size: 100%;
-}
-
-ul{
-    list-style: none;
-}
 
 .main-nav{
     display: flex;
 }
-body{
-    position: relative;
+html, body {
+    margin: 0;
+    height: 100%;
+    background-color: #EEDDBB;
 }
+/*ヘッダー*/
+.header {
+    height: 60px; /* ヘッダーの高さを調整 */
+    background-color: #EEDDBB;
+  }
 
-.number{
-    font-size: 40px;
-}
-
-.mondai{
-    font-size: 30px;
-    width: 600px;
-    height: 50px;
-    outline:auto;
-}
-
-.page-main-wrapper{
-    position: absolute;
-    top: 60px;
-    left: 100px;
-    font-family: arial;
-    width: 1000px;
-    height: 500px;
-    outline: solids 1px black;
-}
-
+/*ハンバーガー*/
 .hamburger {
     display: block;
     height: 60px;
@@ -195,53 +175,73 @@ body{
     color: #172e59;
 }
 
+/*メインコンテンツ*/
+/*モーダルウィンドウ*/
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+    }
+    
+    .modal-content{
+    background-color: white;
+    width: 500px;
+    margin: 40% auto;
+    }
 
-u{
-    color:red;
+.page-main-wrapper {
+    position: absolute;
+    top: 60px; /* ヘッダーの高さを引く */
+    left: 0;
+    width: 60vw;
+    height: 60vh;
+    background-color: white;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#main-question-container{
+    height: 80%;
+}
+
+#display-explanation-container{
+    position: absolute;
+    top: 80%;
+    height: 10%;
+    right: 0;
+}#display-explanation{
+    height: 100%;
+    font-weight: bold;
+}
+#next-question-container{
+    position: absolute;
+    top: 90%;
+    height: 10%;
+    right: 0;
+}#next-question{
+    height: 100%;
+    font-weight: bold;
 }
 
 .rev{
     font-size: 20px;
 }
 
-.answer{
+.answers{
     font-size: large;
-    
     align-items: flex-end;
 }
-.abc{
-    outline: solid 1px black;
-    width: 600px;
-}
-.def{
-    outline: solid 1px black;
-    width: 600px;
-}
-.ghi{
-    outline: solid 1px black;
-    width: 600px;
-}
-.jkl{
-    outline: solid 1px black;
-    width: 600px;
-}
-.abc:hover{
-    background-color: #91cbe9;
-	font-size: 30px;
-	font-weight: bold;
-}
-.def:hover{
-    background-color: #91cbe9;
-	font-size: 30px;
-	font-weight: bold;
-}
-.ghi:hover{
-    background-color: #91cbe9;
-	font-size: 30px;
-	font-weight: bold;
-}
-.jkl:hover{
-    background-color: #91cbe9;
-	font-size: 30px;
-	font-weight: bold;
-}
+.answer {
+    position: relative; /* またはabsolute */
+    z-index: 1; /* すべての回答要素に共通のz-index */
+  }
+  
+  .answer:hover {
+    font-size: 1.2em;
+    z-index: 2; /* カーソルが乗ったときにz-indexを上げる */
+  }

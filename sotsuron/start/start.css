@@ -6,6 +6,7 @@ html {
 }
 
 /*ヘッダー*/
+/*ハンバーガー*/
 .hamburger {
     display: block;
     height: 60px;
@@ -165,6 +166,7 @@ html {
 .accordion__link {
     color: #172e59;
 }
+/*ハンバーガー終了*/
 
 .hint-image{
     margin: 0 0 0 auto;
@@ -232,6 +234,23 @@ html {
 .word-font{
     font-size: 30px;
 }
+.highlight:hover{
+    color: black;
+    text-decoration: underline;
+}
+.link{
+    color: #0000EE;
+}
+.link:hover{
+    text-decoration: underline;
+}
+.lyrics-container .active .highlight {
+    color: red; /* ハイライトの色を指定 */
+}
+.lyrics-container .active .highlight:hover{
+    color: #f0908d;
+    text-decoration: underline;
+}
 
 
 /*セカンダリー*/
@@ -276,20 +295,4 @@ html {
     padding-bottom: 10px;/*日本語歌詞を一行のみにするならここのピクセルを変更*/
 }
 
-.highlight:hover{
-    color: black;
-    text-decoration: underline;
-}
-.link{
-    color: #0000EE;
-}
-.link:hover{
-    text-decoration: underline;
-}
-.lyrics-container .active .highlight {
-    color: red; /* ハイライトの色を指定 */
-}
-.lyrics-container .active .highlight:hover{
-    color: #f0908d;
-    text-decoration: underline;
-}
+
