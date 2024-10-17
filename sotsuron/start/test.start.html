@@ -31,20 +31,38 @@
     </header>
     <!--メイン要素-->
     <main class="page-main-wrapper">
-
-        <div id="issue">
-            <p class="number">第一問</p>
-            <p class="rev">下線部の動詞、形容詞の辞書形として正しいものを1～4の中からひとつ選びなさい。</p>
-            <p class="mondai">너무 <u>슬퍼서</u> 아무말도 못 했어요.</p>
+        <div id="modal" class="modal">
+            <div class="modal-content">
+              <div class="modal-body">
+                <h1>hello</h1>
+                <input type="button" id="closeBtn" value="close">
+              </div>
+            </div>
         </div>
-        <div class="answer">
-            <p class="abc">1.슬프다</p>
-            <p class="def">2.슬퍼서다</p>
-            <p class="ghi">3.슬푸다</p>
-            <p class="jkl">4.슬퍼다</p>
+        <div id="template-container">
+            <template id="template-questions">
+                <div style="display: none; height: 100%;">
+                    <div id="questions">
+                        <h1 class="number">第<span id="question-number"></span>問</h1>
+                        <p class="rev">下線部の動詞、形容詞の辞書形として正しいものを1～4の中からひとつ選びなさい。</p>
+                        <p><span id="korean-questions"></span></p>
+                    </div>
+                    <div class="answers">
+                        <p class="answer">1.<span id="ans_A"></span></p>
+                        <p class="answer">2.<span id="ans_B"></span></p>
+                        <p class="answer">3.<span id="ans_C"></span></p>
+                        <p class="answer">4.<span id="ans_D"></span></p>
+                    </div>
+                </div>
+            </template>
         </div>
-        <div id="next">
-
+        <div id="main-question-container">
+        </div>
+        <div id="display-explanation-container">
+            <button id="display-explanation" onclick="display()">回答を確認して次の問題へ</button>
+        </div>
+        <div id="next-question-container">
+            <button id="next-question" onclick="next()">次の問題へ</button>
         </div>
         <script src="test.start.js"></script>
     </main>

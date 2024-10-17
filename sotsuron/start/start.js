@@ -98,7 +98,7 @@ function onPlayerStateChange(event) {
     if (event.data == YT.PlayerState.PLAYING) {
         setInterval(() => {
             updateLyrics();
-            //updateexplain();
+            updateexplain();
         }, 100);
     }
 }
@@ -235,11 +235,17 @@ function explain(element){
     wordsCon.innerHTML = '';
     const splitwords = element.dataset.words.split(',');//文字を分割
     const splitends = element.dataset.ends.split(',');
-    console.log("ends" + splitends);
-    const joinedwords = splitwords.join("+") + "+" + splitends.join("+");//文字表示
-
     clickword.textContent = element.textContent;//クリックした文字を表示
-    clickbasic.textContent = joinedwords;//結合した単語同士を表示
+    if(element.dataset.ends === "no"){
+        const joinedwords = splitwords.join("+");
+        clickbasic.textContent = joinedwords;//結合した単語同士を表示
+    } else {
+        const joinedwords = splitwords.join("+") + "+" + splitends.join("+");//文字表示
+        clickbasic.textContent = joinedwords;//結合した単語同士を表示
+    }
+
+
+
 
     for (let i = 0; i < splitwords.length; i++) {
         //テンプレート複製
@@ -272,17 +278,17 @@ function explain(element){
             const clone_ends = template_ends.content.cloneNode(true);
             // 以下、複製した要素の処理
             const endToFind = splitends[i];
-            console.log(splitends[i]);
-            console.log(endToFind);
             const result = findend(explain_json, endToFind);
             if (result) {
-                if(result.korean !== 'abc'){
+                if(result && typeof result.korean === 'string' && result.korean === 'no'){
+                    clone_ends.querySelector('div').style.display = 'none';
+                } else {
                     const displaywords_place = clone_ends.querySelector('#display-words');
                     displaywords_place.textContent = result.korean;
-                    const tence_place = clone_ends.querySelector('#tence');
-                    tence_place.textContent = result.tence;
+                    const pos_place = clone_ends.querySelector('#pos');
+                    pos_place.textContent = result.pos;
                     const meaning_place = clone_ends.querySelector('#meaning');
-                    meaning_place.textContent = result.japan;
+                    meaning_place.textContent = result.meaning;
                     
                     clone_ends.querySelector('div').style.display = 'block';
                     document.getElementById('words-container').appendChild(clone_ends);
@@ -294,6 +300,7 @@ function explain(element){
     } else {
         console.log("語尾はありません。");
     }
+    document.getElementById("explanation").scrollTop = 0;
 }
 
 function search(element){
