@@ -296,3 +296,9 @@ function explain(element){
     }
 }
 
+function search(element){
+    const searchKeyword = element.textContent;
+    const searchUrl = `https://korean.dict.naver.com/kojadict/#/search?query=${encodeURIComponent(searchKeyword)}`;
+    window.open(searchUrl,'_blank');
+}
+
