@@ -278,10 +278,18 @@ html {
 
 .highlight:hover{
     color: black;
+    text-decoration: underline;
+}
+.link{
+    color: #0000EE;
+}
+.link:hover{
+    text-decoration: underline;
 }
 .lyrics-container .active .highlight {
     color: red; /* ハイライトの色を指定 */
 }
 .lyrics-container .active .highlight:hover{
     color: #f0908d;
+    text-decoration: underline;
 }
