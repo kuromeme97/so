@@ -24,6 +24,7 @@ fetch('start.json')
     }
     console.log(randomIndices);
     */
+  next();
 })
 .catch(error => {
     console.error('JSON ファイルの読み込みに失敗しました:', error);
@@ -83,10 +84,18 @@ focusTrap.addEventListener("focus", (e) => {
 
 function display(){
   modal.style.display = 'block';
+  const a = document.getElementById("main-container");
+  a.style.pointerEvents = 'none';
+
+
 }
+
 var closeBtn = document.getElementById('closeBtn');
 closeBtn.addEventListener('click', function() {
   modal.style.display = 'none';
+  const b = document.getElementById("main-container");
+  b.style.pointerEvents = 'auto';
+  next();
 })
 
 
@@ -109,18 +118,18 @@ function next(){
   //テンプレート複製
   const template_questions = document.getElementById("template-questions");
   const clone_questions = template_questions.content.cloneNode(true);
-  console.log(clone_questions);
   //
   const currentId = String(randomIndices[current_question]);
   const targetQuestion = findWord(explain_json, currentId);
-  console.log(targetQuestion);
 
   if (targetQuestion) {//resultが存在する場合
     console.log(targetQuestion);
     const number_place = clone_questions.querySelector('#question-number');
     number_place.textContent = String(currentId);
     const korean_questions_place = clone_questions.querySelector('#korean-questions');
-    korean_questions_place.textContent = targetQuestion.question;
+    const highlightRegex = new RegExp(targetQuestion.highlight, 'g');
+    const highlightedQuestion = targetQuestion.question.replace(highlightRegex, `<span class="highlight">$&</span>`);
+    korean_questions_place.innerHTML = highlightedQuestion;
     const ans_A_place = clone_questions.querySelector('#ans_A');
     ans_A_place.textContent = targetQuestion.answer_a;
     const ans_B_place = clone_questions.querySelector('#ans_B');
@@ -129,6 +138,13 @@ function next(){
     ans_C_place.textContent = targetQuestion.answer_c;
     const ans_D_place = clone_questions.querySelector('#ans_D');
     ans_D_place.textContent = targetQuestion.answer_d;
+
+    const word = document.getElementById("word-container");
+    word.textContent = targetQuestion.korean;
+    const japan = document.getElementById("japan-container");
+    japan.textContent = targetQuestion.answer_japan;
+    const question = document.getElementById("question-container");
+    question.textContent = targetQuestion.question;
   } else {
     console.log("targetQuestion が null または undefined です");
   }

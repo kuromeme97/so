@@ -31,14 +31,35 @@
     </header>
     <!--メイン要素-->
     <main class="page-main-wrapper">
-        <div id="modal" class="modal">
+        <div id="modal" class="modal" style="display: none;">
             <div class="modal-content">
-              <div class="modal-body">
-                <h1>hello</h1>
-                <input type="button" id="closeBtn" value="close">
-              </div>
+                <div class="modal-body">
+                    <h1>回答:<span id="word-container"></span></h1>
+                    <p>問題文:<span id="question-container"></span></p>
+                    <p>日本語訳:<span id="japan-container"></span></p>
+                    <input type="button" id="closeBtn" value="次の問題へ">
+                </div>
             </div>
         </div>
+        <div id="modal-container">
+            <div id="modal-template-container">
+                <template id="modal-template-explains">
+                    <div class="modal-content">
+                        <div style="display: none;">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <h1>回答</h1>
+                                    <p>日本語訳<span></span></p>
+                                    <input type="button" id="closeBtn" value="次の問題へ">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+
+        <div id="main-container">
         <div id="template-container">
             <template id="template-questions">
                 <div style="display: none; height: 100%;">
@@ -63,6 +84,7 @@
         </div>
         <div id="next-question-container">
             <button id="next-question" onclick="next()">次の問題へ</button>
+        </div>
         </div>
         <script src="test.start.js"></script>
     </main>

@@ -483,6 +483,7 @@
             {"korean":"-ㄴ","pos":"a","meaning":"a"},
             {"korean":"-면","pos":"a","meaning":"a"},
             {"korean":"-ㄹ 거야","pos":"a","meaning":"a"},
+            {"korean":"-지","pos":"a","meaning":"a"},
             {"korean":"-으니까","pos":"a","meaning":"a"}
         ]
     }   
