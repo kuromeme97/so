@@ -12,7 +12,7 @@ html, body {
 .header {
     height: 60px; /* ヘッダーの高さを調整 */
     background-color: #EEDDBB;
-  }
+}
 
 /*ハンバーガー*/
 .hamburger {
@@ -178,11 +178,11 @@ html, body {
 /*メインコンテンツ*/
 /*モーダルウィンドウ*/
 .modal {
-    display: none;
+    
     position: fixed;
     z-index: 1;
-    left: 0;
-    top: 0;
+    right: 0;
+    bottom: 0;
     height: 100%;
     width: 100%;
     overflow: auto;
@@ -191,10 +191,12 @@ html, body {
     
     .modal-content{
     background-color: white;
-    width: 500px;
-    margin: 40% auto;
+    position: absolute;
+    bottom: 0; 
+    right: 0;
+    width: 80%;
+    height: 80%;
     }
-
 .page-main-wrapper {
     position: absolute;
     top: 60px; /* ヘッダーの高さを引く */
@@ -207,6 +209,11 @@ html, body {
 }
 #main-question-container{
     height: 80%;
+}
+#closeBtn{
+    position: absolute;
+    right: 0;
+    bottom: 0; 
 }
 
 #display-explanation-container{
@@ -232,6 +239,10 @@ html, body {
     font-size: 20px;
 }
 
+.highlight{
+    color: red;
+}
+
 .answers{
     font-size: large;
     align-items: flex-end;
@@ -239,9 +250,9 @@ html, body {
 .answer {
     position: relative; /* またはabsolute */
     z-index: 1; /* すべての回答要素に共通のz-index */
-  }
-  
-  .answer:hover {
-    font-size: 1.2em;
+}
+
+.answer:hover {
+    font-weight: bold;
     z-index: 2; /* カーソルが乗ったときにz-indexを上げる */
-  }
+}
