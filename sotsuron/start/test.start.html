@@ -35,9 +35,11 @@
             <div class="modal-content">
                 <div class="modal-body">
                     <h1>回答:<span id="word-container"></span></h1>
+                    <div id="torf"></div>
                     <p>問題文:<span id="question-container"></span></p>
                     <p>日本語訳:<span id="japan-container"></span></p>
-                    <input type="button" id="closeBtn" value="次の問題へ">
+                    <input type="button" id="closeBtn" style="display: block;" value="次の問題へ">
+                    <input type="button" id="closelast" onclick="last()" style="display: none;" value="回答を確認する。">
                 </div>
             </div>
         </div>
@@ -50,7 +52,7 @@
                                 <div class="modal-body">
                                     <h1>回答</h1>
                                     <p>日本語訳<span></span></p>
-                                    <input type="button" id="closeBtn" value="次の問題へ">
+                                    <input type="button" id="closeBtn" value="次uuu">
                                 </div>
                             </div>
                         </div>
@@ -60,31 +62,50 @@
         </div>
 
         <div id="main-container">
-        <div id="template-container">
-            <template id="template-questions">
-                <div style="display: none; height: 100%;">
-                    <div id="questions">
-                        <h1 class="number">第<span id="question-number"></span>問</h1>
-                        <p class="rev">下線部の動詞、形容詞の辞書形として正しいものを1～4の中からひとつ選びなさい。</p>
-                        <p><span id="korean-questions"></span></p>
+
+            <div id="main-container-question">
+            <div id="template-container">
+                <template id="template-questions">
+                    <div style="display: none; height: 100%;">
+                        <div id="questions">
+                            <h1 class="number">第<span id="question-number"></span>問</h1>
+                            <p class="rev">下線部の動詞、形容詞の辞書形として正しいものを1～4の中からひとつ選びなさい。</p>
+                            <p><span id="korean-questions"></span></p>
+                        </div>
+                        <div class="answers">
+                            <input type="radio" name="select" class="answer"><span id="ans_A"></span></p>
+                            <input type="radio" name="select" class="answer"><span id="ans_B"></span></p>
+                            <input type="radio" name="select" class="answer"><span id="ans_C"></span></p>
+                            <input type="radio" name="select" class="answer"><span id="ans_D"></span></p>
+                        </div>
                     </div>
-                    <div class="answers">
-                        <p class="answer">1.<span id="ans_A"></span></p>
-                        <p class="answer">2.<span id="ans_B"></span></p>
-                        <p class="answer">3.<span id="ans_C"></span></p>
-                        <p class="answer">4.<span id="ans_D"></span></p>
-                    </div>
+                </template>
+            </div>
+            <div id="main-question-container">
+            </div>
+            <div id="display-explanation-container">
+                <button id="display-explanation" onclick="display()">回答を確認して次の問題へ</button>
+            </div>
+            <div id="next-question-container">
+                <button id="next-question" onclick="next()" style="display: block;">次の問題へ</button>
+                <button id="last" onclick="last()" style="display: none;">回答を確認する。</button>
+                <button id="tosurvey" onclick="location.href='https://docs.google.com/forms/d/e/1FAIpQLSfKBRVZ6XIyTkg6sM5sVwMyCb5s1JlrjXlswOBT07uaP-Tnsg/viewform'" style="display: none;">アンケートに回答する</button>
+            </div>
+            </div>
+
+            <div id="main-container-trueorfalse">
+                <div id="template-trueorfalse-container">
+                    <template id="trueorfalse-template" style="display: none;">
+                        <h1>第<span id="torf-number"></span>問<div id="torf-mark"></div></h1>
+                        <p>正解       :<span id="torf-korean"></span></p>
+                        <p>あなたの回答:<span id="torf-checked"></span></p>
+                    </template>
                 </div>
-            </template>
-        </div>
-        <div id="main-question-container">
-        </div>
-        <div id="display-explanation-container">
-            <button id="display-explanation" onclick="display()">回答を確認して次の問題へ</button>
-        </div>
-        <div id="next-question-container">
-            <button id="next-question" onclick="next()">次の問題へ</button>
-        </div>
+                <div id="trueorfalse-container">
+
+                </div>
+            </div>
+
         </div>
         <script src="test.start.js"></script>
     </main>

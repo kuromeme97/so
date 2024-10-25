@@ -1,7 +1,7 @@
 'use strict'
 
 let explain_json = {};
-let randomIndices = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,31,32,33];//,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,31,32,33
+let randomIndices = [];
 let current_question = 0;
 
 // ページロード時に JSON ファイルをフェッチ
@@ -10,20 +10,18 @@ fetch('start.json')
 .then(data => {
     explain_json = data;
     console.log('JSON データを読み込みました');
-    /*
     const wordsArray = data[0].words;
     const totalWords = wordsArray.length;
 
     // ランダムな10個のインデックスを取得
     //const randomIndices = [];
     while (randomIndices.length < 10) {
-      const randomIndex = Math.floor(Math.random() * totalWords);
+      const randomIndex = Math.floor(Math.random() * totalWords) + 1;
       if (!randomIndices.includes(randomIndex)) {
         randomIndices.push(randomIndex);
       }
     }
     console.log(randomIndices);
-    */
   next();
 })
 .catch(error => {
@@ -82,12 +80,57 @@ focusTrap.addEventListener("focus", (e) => {
     hamburger.focus();
 });
 
+
+function check(){
+  const radios = document.querySelectorAll('input[name="select"]');
+  var selectedRadio;
+  for (const radio of radios) {
+    if (radio.checked) {
+      selectedRadio = radio;
+      return selectedRadio;
+    }
+  }
+}
+
+function getSelectedText() {
+  const select = document.getElementsByName('select');
+  for (let i = 0; i < select.length; i++) {
+    if (select[i].checked) {
+      // ラベル要素を取得してテキストを取得する
+      const label = select[i].nextElementSibling;
+      // テキストを返す
+      return label.textContent;
+    }
+  }
+  // どれもし選択されていない場合の処理（任意）
+  return "何も選択されていません";
+}
+
 function display(){
+  document.getElementById("torf").classList.remove();
+  
+  if (check()) {
+    const selectedAnswer = selectedRadio.nextElementSibling.textContent;
+    console.log(selectedAnswer); // 選択された答えを表示
+    // ここで、selectedAnswerを任意の変数に格納して利用できます。
+    // 例
+    const correct = document.getElementById("word-container");
+    console.log(correct.textContent);
+    if(selectedAnswer === correct.textContent){
+      console.log("seikai");
+      document.getElementById("torf").classList.add('circle');
+    } else {
+      console.log("huseikai");
+      document.getElementById("torf").classList.add('cross');
+    }
+  } else {
+    console.log('何も選択されていません');
+  }
+
+  
   modal.style.display = 'block';
   const a = document.getElementById("main-container");
   a.style.pointerEvents = 'none';
-
-
 }
 
 var closeBtn = document.getElementById('closeBtn');
@@ -110,7 +153,13 @@ function findWord(data, wordToFind){
 }
 
 function next(){
-  console.log("next;");
+  if(current_question >= 9){
+    document.getElementById("next-question").style.display = 'none';
+    document.getElementById("closeBtn").style.display = 'none';
+    document.getElementById("last").style.display = 'block';
+    document.getElementById("closelast").style.display = 'block';
+  }
+
   //挿入場所を白紙に
   const mainQuestionCon = document.getElementById("main-question-container");
   mainQuestionCon.innerHTML = '';
@@ -118,6 +167,7 @@ function next(){
   //テンプレート複製
   const template_questions = document.getElementById("template-questions");
   const clone_questions = template_questions.content.cloneNode(true);
+  var clone_trueorfalse = document.getElementById("trueorfalse-template").content.cloneNode(true);
   //
   const currentId = String(randomIndices[current_question]);
   const targetQuestion = findWord(explain_json, currentId);
@@ -125,7 +175,7 @@ function next(){
   if (targetQuestion) {//resultが存在する場合
     console.log(targetQuestion);
     const number_place = clone_questions.querySelector('#question-number');
-    number_place.textContent = String(currentId);
+    number_place.textContent = current_question + 1;
     const korean_questions_place = clone_questions.querySelector('#korean-questions');
     const highlightRegex = new RegExp(targetQuestion.highlight, 'g');
     const highlightedQuestion = targetQuestion.question.replace(highlightRegex, `<span class="highlight">$&</span>`);
@@ -145,11 +195,26 @@ function next(){
     japan.textContent = targetQuestion.answer_japan;
     const question = document.getElementById("question-container");
     question.textContent = targetQuestion.question;
+
+    const torf_number_place = clone_trueorfalse.querySelector('#torf-number');
+    torf_number_place.textContent = current_question + 1;
+    const torf_mark_place = clone_trueorfalse.querySelector('#torf-mark');
+    if(check().textContent === targetQuestion.korean){
+      torf_mark_place.classList.add = 'circle';
+    }else{
+      torf_mark_place.classList.add = 'cross';
+    }
+    //const torf_korean_place = clone_trueorfalse.querySelector('#torf-korean');
+    //torf_korean_place.textContent = targetQuestion.korean;
+    //const torf_checker_place = clone_trueorfalse.querySelector('#torf-checked');
+    //torf_checker_place.textContent = getSelectedText();
   } else {
     console.log("targetQuestion が null または undefined です");
   }
   clone_questions.querySelector('div').style.display = 'block';
   console.log(clone_questions);
   document.getElementById('main-question-container').appendChild(clone_questions);
+  document.getElementById('main-container-trueorfalse').appendChild(clone_trueorfalse);
+  
   current_question ++;
 }

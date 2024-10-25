@@ -215,6 +215,35 @@ html, body {
     right: 0;
     bottom: 0; 
 }
+.circle{
+    width: 50px;
+    height: 50px;
+    border: 10px solid #ff0000; /* 円の太さと色 */
+    border-radius: 50%;
+    box-sizing: border-box; 
+}
+.cross{
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    position: relative;
+}.cross::before,
+.cross::after {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 2px;
+    background-color: blue;
+}
+
+.cross::before {
+    transform: rotate(45deg);
+}
+
+.cross::after {
+    transform: rotate(-45deg);
+}
+
 
 #display-explanation-container{
     position: absolute;
@@ -231,6 +260,9 @@ html, body {
     height: 10%;
     right: 0;
 }#next-question{
+    height: 100%;
+    font-weight: bold;
+}#last{
     height: 100%;
     font-weight: bold;
 }
