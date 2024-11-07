@@ -31,31 +31,17 @@
             },
             {
                 "id":"3",
-                "korean":"이기다",
+                "korean":"이겨내다",
                 "classification":"2",
-                "japan":"勝つ",
-                "haeyo":"이겨요",
-                "question":"마지막 순간에 역전하여 이겼어요.",
-                "highlight":"이겼어요",
-                "answer_japan":"最後の瞬間で逆転し、勝ちました。",
-                "answer_a":"이기다",
-                "answer_b":"이겨다",
-                "answer_c":"이겼다",
-                "answer_d":"이깄다"
-            },
-            {
-                "id":"4",
-                "korean":"내다",
-                "classification":"1",
-                "japan":"出す",
-                "haeyo":"내요",
-                "question":"내가 낼게요",
-                "highlight":"낼게요",
-                "answer_japan":"私が出します（おごります）。",
-                "answer_a":"낼다",
-                "answer_b":"낼게다",
-                "answer_c":"내게다",
-                "answer_d":"내다"
+                "japan":"打ち勝つ、勝ち抜く",
+                "haeyo":"이겨내요",
+                "question":"우리의 정열이 어려움을 이겨내는 힘이 됩니다.",
+                "highlight":"이겨내는",
+                "answer_japan":"私たちの情熱が困難を乗り越える力になります。",
+                "answer_a":"이기내다",
+                "answer_b":"이겨내다",
+                "answer_c":"이겨네다",
+                "answer_d":"이기네다"
             },
             {
                 "id":"5",
@@ -483,7 +469,7 @@
             {"korean":"-ㄴ","pos":"a","meaning":"a"},
             {"korean":"-면","pos":"a","meaning":"a"},
             {"korean":"-ㄹ 거야","pos":"a","meaning":"a"},
-            {"korean":"-지다","pos":"a","meaning":"a"},
+            {"korean":"-(ㅏ/ㅓ)지다","pos":"a","meaning":"a"},
             {"korean":"-으니까","pos":"a","meaning":"a"}
         ]
     }   

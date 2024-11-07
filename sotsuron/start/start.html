@@ -10,6 +10,7 @@
     <!--ヘッダー-->
     <header class="page-header-wrapper">
         <div class="header__inner">
+            <!--
             <button id="js-hamburger" type="button" class="hamburger" 
                 aria-controls="navigation" aria-expanded="false" aria-label="メニューを開く">
                 <span class="hamburger__line"></span>
@@ -27,6 +28,9 @@
                 <div id="js-focus-trap" tabindex="0"></div>
                 </nav>  
             </div>
+            -->
+            <button onclick="window.open('test.start.html')">テストを行う</button>
+            <button id= "togglebutton" onclick="stopAutoScroll()">自動スクロールを無効にする</button>
             <img src="../image/hint.jpg.jpg" alt="hint" id="hintImage" class="hint-image">
             <img src="../image/moving_image.png" alt="動く画像" class="moving-image" id="movingImage">
         </div>
@@ -50,15 +54,16 @@
                     <div id="template-container">
                         <template id="template-words">
                             <div style="display: none;">
-                                <h2><span id="display-words" class="link" onclick="search(this)"></span>:分類<span id="classification"></span></h2>
+                                <h2><span id="display-words" class="link" onclick="search(this)"></span>:グループ<span id="classification"></span></h2>
                                 <p style="text-indent: 2em;">意味：<span id="meaning"></span></p>
                                 <p style="text-indent: 2em;">へヨ体:<span id="simple"></span></p>
                             </div>
                         </template>
                         <template id="template-ends">
                             <div style="display: none;">
-                                <h2><span id="display-words" class="link" onclick="search(this)"></span>:<span id="pos"></span></h2>
-                                <p style="text-indent: 2em;">意味：<span id="meaning"></span></p>
+                                <h2>連結語尾：<span id="display-words" class="link" onclick="search(this)"></h2>
+                                <p style="text-indent: 2em;">グループ：</span><span id="pos"></span></p>
+                                <p style="text-indent: 2em;">意味、説明：<span id="meaning"></span></p>
                             </div>
                         </template>
                     </div>

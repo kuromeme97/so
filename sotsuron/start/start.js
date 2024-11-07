@@ -139,6 +139,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+function stopAutoScroll(){
+    if(autoScrollEnabled){
+        document.getElementById("togglebutton").textContent = "スクロールを無効にする";
+        autoScrollEnabled = false;
+    }else if(autoScrollEnabled){
+        document.getElementById("togglebutton").textContent = "スクロールを有効にする";
+        autoScrollEnabled = true;
+    }
+}
+
 
 const backgroundFix = (bool) => {
     const scrollingElement = () => {

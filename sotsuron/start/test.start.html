@@ -10,6 +10,17 @@
     <!--ヘッダー-->
     <header class="page-header-wrapper">
         <div class="header__inner">
+            <!--
+            <button class="hint-image"  onclick="confirmTransition()">教材に戻る</button>
+            <script>
+                function confirmTransition() {
+                    if (confirm("テストは保存されません。")) {
+                        location.href = "start.html"; // 遷移先のURLをここに指定
+                    }
+                }
+            </script>
+            -->
+            <!--
             <button id="js-hamburger" type="button" class="hamburger" 
                 aria-controls="navigation" aria-expanded="false" aria-label="メニューを開く">
                 <span class="hamburger__line"></span>
@@ -27,6 +38,7 @@
                 <div id="js-focus-trap" tabindex="0"></div>
                 </nav>  
             </div>
+        -->
         </div>
     </header>
     <!--メイン要素-->
@@ -89,8 +101,6 @@
             <div id="next-question-container">
                 <button id="next-question" onclick="next()" style="display: block;">次の問題へ</button>
                 <button id="last" onclick="last()" style="display: none;">回答を確認する。</button>
-                <button id="tosurvey" onclick="location.href='https://docs.google.com/forms/d/e/1FAIpQLSfKBRVZ6XIyTkg6sM5sVwMyCb5s1JlrjXlswOBT07uaP-Tnsg/viewform'" style="display: none;">アンケートに回答する</button>
-            </div>
             </div>
 
             <div id="main-container-trueorfalse">
@@ -101,10 +111,13 @@
                         <p>あなたの回答:<span id="torf-checked"></span></p>
                     </template>
                 </div>
-                <div id="trueorfalse-container">
-
+                <div id="trueorfalse-container" style="display: none;"></div>
+                <button id="tosurvey" onclick="location.href='https://docs.google.com/forms/d/e/1FAIpQLSfKBRVZ6XIyTkg6sM5sVwMyCb5s1JlrjXlswOBT07uaP-Tnsg/viewform'" style="display: none;">アンケートに回答する</button>
                 </div>
             </div>
+        </div>
+
+            
 
         </div>
         <script src="test.start.js"></script>

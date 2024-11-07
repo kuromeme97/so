@@ -22,7 +22,7 @@ fetch('start.json')
       }
     }
     console.log(randomIndices);
-  next();
+  createquestion();
 })
 .catch(error => {
     console.error('JSON ファイルの読み込みに失敗しました:', error);
@@ -60,25 +60,7 @@ const backgroundFix = (bool) => {
     let accordionTrigger = document.querySelectorAll(".js-sp-accordion-trigger");
     let accordion = document.querySelectorAll(".js-sp-accordion");
 
-  // メニュー開閉制御
-  hamburger.addEventListener("click", (e) => { //ハンバーガーボタンが選択されたら
-    e.currentTarget.classList.toggle(CLASS);
-    menu.classList.toggle(CLASS);
-    if (flg) {// flgの状態で制御内容を切り替え
-        backgroundFix(false);
-        hamburger.setAttribute("aria-expanded", "false");
-        hamburger.focus();
-        flg = false;
-    } else {
-        backgroundFix(true);
-        hamburger.setAttribute("aria-expanded", "true");
-        flg = true;
-    }
-});
-  // フォーカストラップ制御
-focusTrap.addEventListener("focus", (e) => {
-    hamburger.focus();
-});
+
 
 
 function check(){
@@ -106,39 +88,14 @@ function getSelectedText() {
   return "何も選択されていません";
 }
 
-function display(){
-  document.getElementById("torf").classList.remove();
-  
-  if (check()) {
-    const selectedAnswer = selectedRadio.nextElementSibling.textContent;
-    console.log(selectedAnswer); // 選択された答えを表示
-    // ここで、selectedAnswerを任意の変数に格納して利用できます。
-    // 例
-    const correct = document.getElementById("word-container");
-    console.log(correct.textContent);
-    if(selectedAnswer === correct.textContent){
-      console.log("seikai");
-      document.getElementById("torf").classList.add('circle');
-    } else {
-      console.log("huseikai");
-      document.getElementById("torf").classList.add('cross');
-    }
-  } else {
-    console.log('何も選択されていません');
-  }
 
-  
-  modal.style.display = 'block';
-  const a = document.getElementById("main-container");
-  a.style.pointerEvents = 'none';
-}
 
 var closeBtn = document.getElementById('closeBtn');
 closeBtn.addEventListener('click', function() {
   modal.style.display = 'none';
   const b = document.getElementById("main-container");
   b.style.pointerEvents = 'auto';
-  next();
+  createquestion();
 })
 
 
@@ -152,7 +109,23 @@ function findWord(data, wordToFind){
     return null; // 見つからなかった場合
 }
 
-function next(){
+function createresult(){
+  const currentId = String(randomIndices[current_question]);
+  const targetQuestion = findWord(explain_json, currentId);
+  if (targetQuestion) {//resultが存在する場合
+    console.log("result" + currentId);
+    const template_trueorfalse = document.getElementById("trueorfalse-template");
+    const clone_trueorfalse = template_trueorfalse.content.cloneNode(true);
+    const torf_korean_place = clone_trueorfalse.querySelector('#torf-korean');
+    torf_korean_place.textContent = targetQuestion.korean;
+
+    document.getElementById('trueorfalse-container').appendChild(clone_trueorfalse);
+  } else {
+    console.log("targetQuestion が null または undefined です");
+  }
+}
+
+function createquestion(){
   if(current_question >= 9){
     document.getElementById("next-question").style.display = 'none';
     document.getElementById("closeBtn").style.display = 'none';
@@ -167,8 +140,6 @@ function next(){
   //テンプレート複製
   const template_questions = document.getElementById("template-questions");
   const clone_questions = template_questions.content.cloneNode(true);
-  var clone_trueorfalse = document.getElementById("trueorfalse-template").content.cloneNode(true);
-  //
   const currentId = String(randomIndices[current_question]);
   const targetQuestion = findWord(explain_json, currentId);
 
@@ -196,9 +167,11 @@ function next(){
     const question = document.getElementById("question-container");
     question.textContent = targetQuestion.question;
 
+    /*
     const torf_number_place = clone_trueorfalse.querySelector('#torf-number');
     torf_number_place.textContent = current_question + 1;
     const torf_mark_place = clone_trueorfalse.querySelector('#torf-mark');
+    /*
     if(check().textContent === targetQuestion.korean){
       torf_mark_place.classList.add = 'circle';
     }else{
@@ -208,13 +181,68 @@ function next(){
     //torf_korean_place.textContent = targetQuestion.korean;
     //const torf_checker_place = clone_trueorfalse.querySelector('#torf-checked');
     //torf_checker_place.textContent = getSelectedText();
+    */
   } else {
     console.log("targetQuestion が null または undefined です");
   }
-  clone_questions.querySelector('div').style.display = 'block';
+    
   console.log(clone_questions);
+  clone_questions.querySelector('div').style.display = 'block';
   document.getElementById('main-question-container').appendChild(clone_questions);
-  document.getElementById('main-container-trueorfalse').appendChild(clone_trueorfalse);
   
   current_question ++;
+}
+
+function display(){
+  document.getElementById("torf").classList.remove();
+  
+  const elementcheck = check();
+  if (elementcheck) {
+    const selectedAnswer = elementcheck.nextElementSibling.textContent;
+    console.log(selectedAnswer); // 選択された答えを表示
+    // ここで、selectedAnswerを任意の変数に格納して利用できます。
+    // 例
+    const correct = document.getElementById("word-container");
+    console.log(correct.textContent);
+    
+    if(selectedAnswer === correct.textContent){
+      console.log("seikai");
+      document.getElementById("torf").classList.remove('circle');
+      document.getElementById("torf").classList.remove('cross');
+      document.getElementById("torf").classList.add('circle');
+    } else {
+      console.log("huseikai");
+      document.getElementById("torf").classList.remove('circle');
+      document.getElementById("torf").classList.remove('cross');
+      document.getElementById("torf").classList.add('cross');
+    }
+  } else {
+    console.log('何も選択されていません');
+  }
+
+  
+  modal.style.display = 'block';
+  const a = document.getElementById("main-container");
+  a.style.pointerEvents = 'none';
+}
+
+function next(){
+  console.log("nextかっこ");
+  createresult();
+  createquestion();
+}
+
+function last(){
+  console.log("lastかっこ");
+  const mainQuestionContainer = document.getElementById("main-question-container");
+  const trueOrFalseContainer = document.getElementById("trueorfalse-container");
+  const displayExplanation = document.getElementById("display-explanation");
+  const last = document.getElementById("last");
+  const questionnaire = document.getElementById("tosurvey");
+
+  mainQuestionContainer.querySelector('div').style.display = 'none';
+  displayExplanation.style.display = 'none';
+  last.style.display = 'none';
+  trueOrFalseContainer.style.display = 'block';
+  questionnaire.style.display = 'block';
 }

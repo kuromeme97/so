@@ -244,6 +244,12 @@ html, body {
     transform: rotate(-45deg);
 }
 
+#trueorfalse-container{
+    top: 80%;
+    height: 60vh;
+    overflow-y: scroll;
+}
+
 
 #display-explanation-container{
     position: absolute;
