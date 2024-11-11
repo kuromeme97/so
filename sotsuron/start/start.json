@@ -44,7 +44,7 @@
                 "answer_d":"이기네다"
             },
             {
-                "id":"5",
+                "id":"4",
                 "korean":"뒤쫓다",
                 "classification":"2",
                 "japan":"後を追う",
@@ -58,7 +58,7 @@
                 "answer_d":"뒤쫓아요"
             },
             {
-                "id":"6",
+                "id":"5",
                 "korean":"앞지르다",
                 "classification":"5(으変則活用)",
                 "japan":"追い越す",
@@ -72,7 +72,7 @@
                 "answer_d":"앞지르다"
             },
             {
-                "id":"7",
+                "id":"6",
                 "korean":"가다",
                 "classification":"1",
                 "japan":"行く",
@@ -86,7 +86,7 @@
                 "answer_d":"가게다"
             },
             {
-                "id":"8",
+                "id":"7",
                 "korean":"-고 싶다",
                 "classification":"4",
                 "japan":"～したい",
@@ -100,7 +100,7 @@
                 "answer_d":"-고 시푸다"
             },
             {
-                "id":"9",
+                "id":"8",
                 "korean":"긋다",
                 "classification":"5(ㅅ変則活用)",
                 "japan":"(線などを)引く",
@@ -114,7 +114,7 @@
                 "answer_d":"그어다"
             },
             {
-                "id":"10",
+                "id":"9",
                 "korean":"놓다",
                 "classification":"3",
                 "japan":"置く",
@@ -128,7 +128,7 @@
                 "answer_d":"노다"
             },
             {
-                "id":"11",
+                "id":"10",
                 "korean":"넘다",
                 "classification":"4",
                 "japan":"越える",
@@ -142,7 +142,7 @@
                 "answer_d":"넘다"
             },
             {
-                "id":"12",
+                "id":"11",
                 "korean":"향하다",
                 "classification":"1",
                 "japan":"～に向かう",
@@ -156,7 +156,7 @@
                 "answer_d":"행다"
             },
             {
-                "id":"13",
+                "id":"12",
                 "korean":"-지 말다",
                 "classification":"3",
                 "japan":"しない。やめる。",
@@ -170,7 +170,7 @@
                 "answer_d":"-지 마루다"
             },
             {
-                "id":"14",
+                "id":"13",
                 "korean":"지치다",
                 "classification":"2",
                 "japan":"疲れ果てる",
@@ -184,7 +184,7 @@
                 "answer_d":"지져다"
             },
             {
-                "id":"15",
+                "id":"14",
                 "korean":"쓰러지다",
                 "classification":"3",
                 "japan":"倒れる",
@@ -198,7 +198,7 @@
                 "answer_d":"쓸러지다"
             },
             {
-                "id":"16",
+                "id":"15",
                 "korean":"필요하다",
                 "classification":"1",
                 "japan":"必要だ",
@@ -212,7 +212,7 @@
                 "answer_d":"필료해다"
             },
             {
-                "id":"17",
+                "id":"16",
                 "korean":"빛나다",
                 "classification":"1",
                 "japan":"光る。輝く。",
@@ -226,7 +226,7 @@
                 "answer_d":"빚나다"
             },
             {
-                "id":"18",
+                "id":"17",
                 "korean":"-지 않다",
                 "classification":"3",
                 "japan":"～しない",
@@ -240,7 +240,7 @@
                 "answer_d":"-지 않아다"
             },
             {
-                "id":"19",
+                "id":"18",
                 "korean":"응원하다",
                 "classification":"1",
                 "japan":"応援する",
@@ -254,7 +254,7 @@
                 "answer_d":"응원하다"
             },
             {
-                "id":"20",
+                "id":"19",
                 "korean":"가지다",
                 "classification":"3",
                 "japan":"持つ。取る。",
@@ -268,7 +268,7 @@
                 "answer_d":"가쳐다"
             },
             {
-                "id":"21",
+                "id":"20",
                 "korean":"부러지다",
                 "classification":"3",
                 "japan":"折れる",
@@ -282,7 +282,7 @@
                 "answer_d":"부러져서다"
             },
             {
-                "id":"22",
+                "id":"21",
                 "korean":"뛰다",
                 "classification":"2",
                 "japan":"走る。跳ね上がる。",
@@ -296,7 +296,7 @@
                 "answer_d":"뛰다"
             },
             {
-                "id":"23",
+                "id":"22",
                 "korean":"위하다",
                 "classification":"1",
                 "japan":"～のためにする。大事に思う。",
@@ -310,7 +310,7 @@
                 "answer_d":"위해다"
             },
             {
-                "id":"24",
+                "id":"23",
                 "korean":"멈추다",
                 "classification":"3",
                 "japan":"止まる。止める。",
@@ -324,7 +324,7 @@
                 "answer_d":"멈주다"
             },
             {
-                "id":"25",
+                "id":"24",
                 "korean":"따라잡다",
                 "classification":"3",
                 "japan":"追い抜く",
@@ -338,7 +338,7 @@
                 "answer_d":"다라잡다"
             },
             {
-                "id":"26",
+                "id":"25",
                 "korean":"원하다",
                 "classification":"1",
                 "japan":"望む。願う。",
@@ -352,7 +352,7 @@
                 "answer_d":"원하고다"
             },
             {
-                "id":"27",
+                "id":"26",
                 "korean":"변하다",
                 "classification":"1",
                 "japan":"変わる。変化する。",
@@ -366,7 +366,7 @@
                 "answer_d":"뵨해다"
             },
             {
-                "id":"28",
+                "id":"27",
                 "korean":"없다",
                 "classification":"4",
                 "japan":"ない。いない。",
@@ -380,7 +380,7 @@
                 "answer_d":"없스다"
             },
             {
-                "id":"29",
+                "id":"28",
                 "korean":"버티다",
                 "classification":"",
                 "japan":"耐える",
@@ -394,7 +394,7 @@
                 "answer_d":"보디다"
             },
             {
-                "id":"30",
+                "id":"29",
                 "korean":"단단하다",
                 "classification":"1",
                 "japan":"固い。硬い。",
@@ -408,7 +408,7 @@
                 "answer_d":"단단해다"
             },
             {
-                "id":"31",
+                "id":"30",
                 "korean":"시작하다",
                 "classification":"1",
                 "japan":"はじまる。はじめる。",
@@ -422,7 +422,7 @@
                 "answer_d":"시자구해다"
             },
             {
-                "id":"32",
+                "id":"31",
                 "korean":"잃다",
                 "classification":"4",
                 "japan":"無くす。失う。",
@@ -436,7 +436,7 @@
                 "answer_d":"일다"
             },
             {
-                "id":"33",
+                "id":"32",
                 "korean":"걸다",
                 "classification":"4",
                 "japan":"賭ける",
@@ -451,26 +451,24 @@
             }
         ],
         "ends":[
-            {"korean":"no","pos":"ㅁ","meaning":"ㅁ"},
-            {"korean":"-게","pos":"連結語尾","meaning":"～のように"},
-            {"korean":"지","pos":"a","meaning":"a"},
-            {"korean":"-ㄹ 것","pos":"a","meaning":"a"},
-            {"korean":"-는","pos":"a","meaning":"a"},
-            {"korean":"-고","pos":"a","meaning":"a"},
-            {"korean":"-은","pos":"a","meaning":"a"},
-            {"korean":"-겠-","pos":"a","meaning":"a"},
-            {"korean":"-라고","pos":"a","meaning":"a"},
-            {"korean":"-ㄹ 때","pos":"a","meaning":"a"},
-            {"korean":"-도","pos":"a","meaning":"a"},
-            {"korean":"-ㄹ 테니","pos":"a","meaning":"a"},
-            {"korean":"-ㄴ 것","pos":"a","meaning":"a"},
-            {"korean":"-ㄹ 테니까","pos":"a","meaning":"a"},
-            {"korean":"-다고","pos":"a","meaning":"a"},
-            {"korean":"-ㄴ","pos":"a","meaning":"a"},
-            {"korean":"-면","pos":"a","meaning":"a"},
-            {"korean":"-ㄹ 거야","pos":"a","meaning":"a"},
-            {"korean":"-(ㅏ/ㅓ)지다","pos":"a","meaning":"a"},
-            {"korean":"-으니까","pos":"a","meaning":"a"}
+            {"korean":"no","meaning":"ㅁ"},
+            {"korean":"-게","meaning":"～のように"},
+            {"korean":"지","meaning":"～でしょ"},
+            {"korean":"-ㄹ 것","meaning":"～すること"},
+            {"korean":"-는/ㄴ","meaning":"現在連体形"},
+            {"korean":"-고","meaning":"～して"},
+            {"korean":"-은/ㄴ","meaning":"過去連体形"},
+            {"korean":"-겠-","meaning":"未来の推測の意味"},
+            {"korean":"-라고/이라고","meaning":"～だと"},
+            {"korean":"-(으)ㄹ 때","meaning":"～するまで"},
+            {"korean":"-도","meaning":"～も"},
+            {"korean":"-(으)ㄹ 테니(까)","meaning":"～するから"},
+            {"korean":"-ㄴ 것","meaning":"～のこと"},
+            {"korean":"-(ㄴ/은)다고","meaning":"～だって"},
+            {"korean":"-(으)면","meaning":"～なら"},
+            {"korean":"-ㄹ 거야","meaning":"～するはずだよ"},
+            {"korean":"-(ㅏ/ㅓ)지다","meaning":"～くなる"},
+            {"korean":"-(으)니까","meaning":"～だから"}
         ]
     }   
 ]

@@ -182,26 +182,6 @@ const backgroundFix = (bool) => {
     let accordionTrigger = document.querySelectorAll(".js-sp-accordion-trigger");
     let accordion = document.querySelectorAll(".js-sp-accordion");
 
-  // メニュー開閉制御
-  hamburger.addEventListener("click", (e) => { //ハンバーガーボタンが選択されたら
-    e.currentTarget.classList.toggle(CLASS);
-    menu.classList.toggle(CLASS);
-    if (flg) {// flgの状態で制御内容を切り替え
-        backgroundFix(false);
-        hamburger.setAttribute("aria-expanded", "false");
-        hamburger.focus();
-        flg = false;
-    } else {
-        backgroundFix(true);
-        hamburger.setAttribute("aria-expanded", "true");
-        flg = true;
-    }
-});
-  // フォーカストラップ制御
-focusTrap.addEventListener("focus", (e) => {
-    hamburger.focus();
-});
-
 const hintimg = document.getElementById("hintImage");
 const movingImage = document.getElementById('movingImage');
 let isShown = false;

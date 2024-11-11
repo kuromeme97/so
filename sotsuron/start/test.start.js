@@ -91,12 +91,21 @@ function getSelectedText() {
 
 
 var closeBtn = document.getElementById('closeBtn');
+var closelast = document.getElementById('closelast');
 closeBtn.addEventListener('click', function() {
   modal.style.display = 'none';
   const b = document.getElementById("main-container");
   b.style.pointerEvents = 'auto';
+  createresult();
   createquestion();
-})
+});
+closelast.addEventListener('click', function(){
+  modal.style.display = 'none';
+  const b = document.getElementById("main-container");
+  b.style.pointerEvents = 'auto';
+  createresult();
+  last();
+});
 
 
 function findWord(data, wordToFind){
@@ -116,8 +125,23 @@ function createresult(){
     console.log("result" + currentId);
     const template_trueorfalse = document.getElementById("trueorfalse-template");
     const clone_trueorfalse = template_trueorfalse.content.cloneNode(true);
+
+    const torf_number_place = clone_trueorfalse.querySelector('#torf-number');
+    torf_number_place.textContent = current_question;
+    const torf_mark_place = clone_trueorfalse.querySelector('#torf-mark');
+    torf_mark_place.textContent = targetQuestion.korean;
     const torf_korean_place = clone_trueorfalse.querySelector('#torf-korean');
     torf_korean_place.textContent = targetQuestion.korean;
+    const torf_checked_place = clone_trueorfalse.querySelector("#torf-checked");
+    console.log(torf_checked_place);
+
+    const elementcheck = check();
+    console.log(elementcheck); 
+    if(elementcheck){
+      torf_checked_place.textContent = elementcheck.nextElementSibling.textContent;
+    }else{
+      torf_checked_place.textContent = "未回答";
+    }
 
     document.getElementById('trueorfalse-container').appendChild(clone_trueorfalse);
   } else {
