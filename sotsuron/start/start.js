@@ -183,17 +183,31 @@ const backgroundFix = (bool) => {
     let accordion = document.querySelectorAll(".js-sp-accordion");
 
 const hintimg = document.getElementById("hintImage");
-const movingImage = document.getElementById('movingImage');
-let isShown = false;
+const movingImageOne = document.getElementById('movingImage-one');
+const movingImageTwo = document.getElementById('movingImage-two');
+var imageToggle = 0;
 hintimg.addEventListener('click', () => {
     console.log('押されました');
-    isShown = !isShown; // フラグを反転
-    if (isShown) {
-        console.log('表示される');
-        movingImage.classList.add('show');
-    } else {
-        console.log('表示消える');
-        movingImage.classList.remove('show');
+    switch(imageToggle){
+        case 0:
+            console.log("image1");
+            movingImageOne.classList.add('show');
+            imageToggle ++;
+            break;
+        case 1:
+            console.log("image2");
+            movingImageOne.classList.remove('show');
+            movingImageTwo.classList.add('show');
+            imageToggle ++;
+            break;
+        case 2:
+            console.log("image消える");
+            movingImageTwo.classList.remove('show');
+            imageToggle = 0;
+            break;
+        default:
+            movingImageOne.classList.remove('show');
+            movingImageTwo.classList.remove('show');
     }
 });
 

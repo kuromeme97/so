@@ -22,33 +22,12 @@ fetch('start.json')
       }
     }
     console.log(randomIndices);
-  createquestion();
+    createresult();
+    createquestion();
 })
 .catch(error => {
     console.error('JSON ファイルの読み込みに失敗しました:', error);
 });
-
-const backgroundFix = (bool) => {
-    const scrollingElement = () => {
-    const browser = window.navigator.userAgent.toLowerCase();
-    if ("scrollingElement" in document) return document.scrollingElement;
-    return document.documentElement;
-    };
-    const scrollY = bool? scrollingElement().scrollTop: parseInt(document.body.style.top || "0");
-    const fixedStyles = {
-        height: "100vh",
-        position: "fixed",
-        top: `${scrollY * -1}px`,
-        left: "0",
-        width: "100vw"
-    };
-    Object.keys(fixedStyles).forEach((key) => {
-        document.body.style[key] = bool ? fixedStyles[key] : "";
-    });
-    if (!bool) {
-      window.scrollTo(0, scrollY * -1);
-    }
-};
 
   // 変数定義
     const CLASS = "-active";
@@ -59,9 +38,6 @@ const backgroundFix = (bool) => {
     let menu = document.querySelector(".js-nav-area");
     let accordionTrigger = document.querySelectorAll(".js-sp-accordion-trigger");
     let accordion = document.querySelectorAll(".js-sp-accordion");
-
-
-
 
 function check(){
   const radios = document.querySelectorAll('input[name="select"]');
@@ -121,13 +97,16 @@ function findWord(data, wordToFind){
 function createresult(){
   const currentId = String(randomIndices[current_question]);
   const targetQuestion = findWord(explain_json, currentId);
+  
+  console.log("作成iareb" + targetQuestion);
+  console.log("作成しました" + currentId);
   if (targetQuestion) {//resultが存在する場合
     console.log("result" + currentId);
     const template_trueorfalse = document.getElementById("trueorfalse-template");
     const clone_trueorfalse = template_trueorfalse.content.cloneNode(true);
 
     const torf_number_place = clone_trueorfalse.querySelector('#torf-number');
-    torf_number_place.textContent = current_question;
+    torf_number_place.textContent = current_question + 1;
     const torf_mark_place = clone_trueorfalse.querySelector('#torf-mark');
     torf_mark_place.textContent = targetQuestion.korean;
     const torf_korean_place = clone_trueorfalse.querySelector('#torf-korean');
@@ -206,6 +185,7 @@ function createquestion(){
     //const torf_checker_place = clone_trueorfalse.querySelector('#torf-checked');
     //torf_checker_place.textContent = getSelectedText();
     */
+  
   } else {
     console.log("targetQuestion が null または undefined です");
   }
@@ -257,6 +237,7 @@ function next(){
 }
 
 function last(){
+  createresult();
   console.log("lastかっこ");
   const mainQuestionContainer = document.getElementById("main-question-container");
   const trueOrFalseContainer = document.getElementById("trueorfalse-container");
