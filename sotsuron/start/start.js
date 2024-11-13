@@ -289,8 +289,6 @@ function explain(element){
                 } else {
                     const displaywords_place = clone_ends.querySelector('#display-words');
                     displaywords_place.textContent = result.korean;
-                    const pos_place = clone_ends.querySelector('#pos');
-                    pos_place.textContent = result.pos;
                     const meaning_place = clone_ends.querySelector('#meaning');
                     meaning_place.textContent = result.meaning;
                     
