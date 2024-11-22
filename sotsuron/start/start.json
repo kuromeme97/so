@@ -412,24 +412,28 @@
             {"korean":"no","meaning":"ㅁ"},
             {"korean":"-게","meaning":"～のように"},
             {"korean":"지","meaning":"～でしょ"},
-            {"korean":"-ㄹ 것","meaning":"～すること"},
-            {"korean":"-는/ㄴ","meaning":"現在連体形"},
+            {"korean":"-(으)ㄹ 것","meaning":"～すること"},
+            {"korean":"-는/ㄴ","meaning":"動詞の現在連体形"},
+            {"korean":"아/어(서)","meaning":"～して"},
             {"korean":"-고","meaning":"～して"},
             {"korean":"-은/ㄴ","meaning":"過去連体形"},
-            {"korean":"-겠-","meaning":"未来の推測の意味"},
+            {"korean":"-겠지","meaning":"～だろう"},
             {"korean":"-라고/이라고","meaning":"～だと"},
-            {"korean":"-(으)ㄹ 때","meaning":"～するまで"},
-            {"korean":"-도","meaning":"～も"},
+            {"korean":"-(으)ㄹ 때","meaning":"～するとき＊까지が付くと「～する時まで」となる"},
+            {"korean":"-(아/어)도","meaning":"～も"},
             {"korean":"-(으)ㄹ 테니(까)","meaning":"～するから"},
-            {"korean":"-ㄴ 것","meaning":"～のこと"},
-            {"korean":"-(ㄴ/은)다고","meaning":"～だって"},
+            {"korean":"-ㄴ 것","meaning":"～したこと"},
+            {"korean":"-다고","meaning":"～と"},
+            {"korean":"-는 대로","meaning":"～するまま"},
             {"korean":"-(으)면","meaning":"～なら"},
             {"korean":"-ㄹ 거야","meaning":"～するはずだよ"},
             {"korean":"-(ㅏ/ㅓ)지다","meaning":"～くなる"},
             {"korean":"-(으)니까","meaning":"～だから"},
             {"korean":"-고 싶다","meaning":"～したい"},
+            {"korean":"-고 싶어 하다","meaning":"～したがる"},
             {"korean":"-지 말다","meaning":"しない。やめる。"},
-            {"korean":"-지 않다","meaning":"～しない"}
-        ]
+            {"korean":"-지 않다","meaning":"～しない"},
+            {"korean":"-(ㅏ/ㅓ)가다","meaning":"～しに行く"}
+        ]  
     }   
 ]
