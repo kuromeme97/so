@@ -169,22 +169,6 @@ function createquestion(){
     japan.textContent = targetQuestion.answer_japan;
     const question = document.getElementById("question-container");
     question.textContent = targetQuestion.question;
-
-    /*
-    const torf_number_place = clone_trueorfalse.querySelector('#torf-number');
-    torf_number_place.textContent = current_question + 1;
-    const torf_mark_place = clone_trueorfalse.querySelector('#torf-mark');
-    /*
-    if(check().textContent === targetQuestion.korean){
-      torf_mark_place.classList.add = 'circle';
-    }else{
-      torf_mark_place.classList.add = 'cross';
-    }
-    //const torf_korean_place = clone_trueorfalse.querySelector('#torf-korean');
-    //torf_korean_place.textContent = targetQuestion.korean;
-    //const torf_checker_place = clone_trueorfalse.querySelector('#torf-checked');
-    //torf_checker_place.textContent = getSelectedText();
-    */
   
   } else {
     console.log("targetQuestion が null または undefined です");

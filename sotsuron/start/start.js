@@ -190,7 +190,7 @@ hintimg.addEventListener('click', () => {
     console.log('押されました');
     switch(imageToggle){
         case 0:
-            console.log("image1");
+            console.log("image1");0
             movingImageOne.classList.add('show');
             imageToggle ++;
             break;
