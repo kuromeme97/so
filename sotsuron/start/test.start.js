@@ -14,7 +14,6 @@ fetch('start.json')
     const totalWords = wordsArray.length;
 
     // ランダムな10個のインデックスを取得
-    //const randomIndices = [];
     while (randomIndices.length < 10) {
       const randomIndex = Math.floor(Math.random() * totalWords) + 1;
       if (!randomIndices.includes(randomIndex)) {
