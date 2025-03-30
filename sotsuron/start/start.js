@@ -61,6 +61,21 @@ let isUserScrolling = false;   // ユーザーがスクロール中かどうか
 let scrollTimeout;             // スクロールが止まった後のタイマー
 let autoScrollEnabled = true;  // 自動スクロールが有効かどうか
 
+//jsonファイル読み込み処理
+// グローバル変数に profiles を定義
+let explain_json = {};
+
+// ページロード時に JSON ファイルをフェッチ
+fetch('start.json')
+.then(response => response.json())
+.then(data => {
+    explain_json = data;
+    console.log('JSON データを読み込みました');
+})
+.catch(error => {
+    console.error('JSON ファイルの読み込みに失敗しました:', error);
+});
+
 // YouTube APIの準備が完了したときに呼ばれる
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('youtube-video', {
@@ -83,7 +98,7 @@ function onPlayerStateChange(event) {
     if (event.data == YT.PlayerState.PLAYING) {
         setInterval(() => {
             updateLyrics();
-            //updateexplain();
+            updateexplain();
         }, 100);
     }
 }
@@ -124,6 +139,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+function stopAutoScroll(){
+    if(autoScrollEnabled){
+        document.getElementById("togglebutton").textContent = "スクロールを無効にする";
+        autoScrollEnabled = false;
+    }else if(autoScrollEnabled){
+        document.getElementById("togglebutton").textContent = "スクロールを有効にする";
+        autoScrollEnabled = true;
+    }
+}
+
 
 const backgroundFix = (bool) => {
     const scrollingElement = () => {
@@ -157,45 +182,132 @@ const backgroundFix = (bool) => {
     let accordionTrigger = document.querySelectorAll(".js-sp-accordion-trigger");
     let accordion = document.querySelectorAll(".js-sp-accordion");
 
-  // メニュー開閉制御
-  hamburger.addEventListener("click", (e) => { //ハンバーガーボタンが選択されたら
-    e.currentTarget.classList.toggle(CLASS);
-    menu.classList.toggle(CLASS);
-    if (flg) {// flgの状態で制御内容を切り替え
-        backgroundFix(false);
-        hamburger.setAttribute("aria-expanded", "false");
-        hamburger.focus();
-        flg = false;
-    } else {
-        backgroundFix(true);
-        hamburger.setAttribute("aria-expanded", "true");
-        flg = true;
-    }
-});
-  // フォーカストラップ制御
-focusTrap.addEventListener("focus", (e) => {
-    hamburger.focus();
-});
-
 const hintimg = document.getElementById("hintImage");
-const movingImage = document.getElementById('movingImage');
-let isShown = false;
+const movingImageOne = document.getElementById('movingImage-one');
+const movingImageTwo = document.getElementById('movingImage-two');
+var imageToggle = 0;
 hintimg.addEventListener('click', () => {
     console.log('押されました');
-    isShown = !isShown; // フラグを反転
-    if (isShown) {
-        console.log('表示される');
-        movingImage.classList.add('show');
-    } else {
-        console.log('表示消える');
-        movingImage.classList.remove('show');
+    switch(imageToggle){
+        case 0:
+            console.log("image1");0
+            movingImageOne.classList.add('show');
+            imageToggle ++;
+            break;
+        case 1:
+            console.log("image2");
+            movingImageOne.classList.remove('show');
+            movingImageTwo.classList.add('show');
+            imageToggle ++;
+            break;
+        case 2:
+            console.log("image消える");
+            movingImageTwo.classList.remove('show');
+            imageToggle = 0;
+            break;
+        default:
+            movingImageOne.classList.remove('show');
+            movingImageTwo.classList.remove('show');
     }
 });
+
+
+function findWord(data, wordToFind){
+    for (const element of data) {
+        const foundWord = element.words.find(word => word.korean === wordToFind);
+        if (foundWord) {
+            return foundWord;
+        }
+    }
+      return null; // 見つからなかった場合
+}
+function findend(data, endToFind){
+    for (const element of data) {
+        const foundend = element.ends.find(end => end.korean === endToFind);
+        if (foundend) {
+            return foundend;
+        }
+    }
+      return null; // 見つからなかった場合
+}
 
 function explain(element){
     //ここにクリック時のものを書く
-    console.log(element.textContent);
     const clickword = document.getElementById("word");
-    clickword.textContent=element.textContent;
+    const clickbasic = document.getElementById("basic");
+    const wordsCon = document.getElementById("words-container");
+    wordsCon.innerHTML = '';
+    const splitwords = element.dataset.words.split(',');//文字を分割
+    const splitends = element.dataset.ends.split(',');
+    clickword.textContent = element.textContent;//クリックした文字を表示
+    if(element.dataset.ends === "no"){
+        const joinedwords = splitwords.join("+");
+        clickbasic.textContent = joinedwords;//結合した単語同士を表示
+    } else {
+        const joinedwords = splitwords.join("+") + "+" + splitends.join("+");//文字表示
+        clickbasic.textContent = joinedwords;//結合した単語同士を表示
+    }
 
+
+
+
+    for (let i = 0; i < splitwords.length; i++) {
+        //テンプレート複製
+        const template_words = document.getElementById("template-words");
+        const clone_words = template_words.content.cloneNode(true);
+        // 以下、複製した要素の処理
+        const wordToFind = splitwords[i];
+        const result = findWord(explain_json, wordToFind);
+        if (result) {//resultが存在する場合
+            const displaywords_place = clone_words.querySelector('#display-words');
+            displaywords_place.textContent = result.korean;
+            const classification_place = clone_words.querySelector('#classification');
+            classification_place.textContent = result.classification;
+            const meaning_place = clone_words.querySelector('#meaning');
+            meaning_place.textContent = result.japan;
+            const simple_place = clone_words.querySelector('#simple');
+            simple_place.textContent = result.haeyo;
+        } else {
+            console.log("result が null または undefined です");
+        }
+        clone_words.querySelector('div').style.display = 'block';
+        document.getElementById('words-container').appendChild(clone_words);
+    }
+
+    //語尾があるかどうか
+    if(splitends){
+        for (let i = 0; i < splitends.length; i++) {
+            //テンプレート複製
+            const template_ends = document.getElementById("template-ends");
+            const clone_ends = template_ends.content.cloneNode(true);
+            // 以下、複製した要素の処理
+            const endToFind = splitends[i];
+            const result = findend(explain_json, endToFind);
+            if (result) {
+                if(result && typeof result.korean === 'string' && result.korean === 'no'){
+                    clone_ends.querySelector('div').style.display = 'none';
+                } else {
+                    const displaywords_place = clone_ends.querySelector('#display-words');
+                    displaywords_place.textContent = result.korean;
+                    const meaning_place = clone_ends.querySelector('#meaning');
+                    meaning_place.textContent = result.meaning;
+                    
+                    clone_ends.querySelector('div').style.display = 'block';
+                    document.getElementById('words-container').appendChild(clone_ends);
+                }
+            } else {
+                console.log("result が null または undefined です");
+            }
+        } 
+    } else {
+        console.log("語尾はありません。");
+    }
+    document.getElementById("explanation").scrollTop = 0;
 }
+
+function search(element){
+    const searchKeyword = element.textContent;
+    const searchUrl = `https://korean.dict.naver.com/kojadict/#/search?query=${encodeURIComponent(searchKeyword)}`;
+    window.open(searchUrl,'_blank');
+}
+

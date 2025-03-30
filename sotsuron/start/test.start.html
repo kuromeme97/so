@@ -10,40 +10,86 @@
     <!--ヘッダー-->
     <header class="page-header-wrapper">
         <div class="header__inner">
-            <button id="js-hamburger" type="button" class="hamburger" 
-                aria-controls="navigation" aria-expanded="false" aria-label="メニューを開く">
-                <span class="hamburger__line"></span>
-                <span class="hamburger__text"></span>
-            </button>
-            <div class="header__nav-area js-nav-area" id="navigation">
-                <nav id="js-global-navigation" class="global-navigation">
-                    <ul class="global-navigation__list">
-                        <li>
-                        <a href="start.html" class="global-navigation__link">
-                            MUSIC
-                        </a>
-                        </li>
-                    </ul>
-                <div id="js-focus-trap" tabindex="0"></div>
-                </nav>  
-            </div>
+        
         </div>
     </header>
     <!--メイン要素-->
     <main class="page-main-wrapper">
+        <div id="modal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <h1>回答:<span id="word-container"></span></h1>
+                    <div id="torf"></div>
+                    <p>問題文:<span id="question-container"></span></p>
+                    <p>日本語訳:<span id="japan-container"></span></p>
+                    <input type="button" id="closeBtn" style="display: block;" value="次の問題へ">
+                    <input type="button" id="closelast" style="display: none;" value="回答を確認する。">
+                </div>
+            </div>
+        </div>
+        <div id="modal-container">
+            <div id="modal-template-container">
+                <template id="modal-template-explains">
+                    <div class="modal-content">
+                        <div style="display: none;">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <h1>回答</h1>
+                                    <p>日本語訳<span></span></p>
+                                    <input type="button" id="closeBtn" value="次uuu">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
 
-        <div id="issue">
-            <p class="number">第一問</p>
-            <p class="rev">下線部の動詞、形容詞の辞書形として正しいものを1～4の中からひとつ選びなさい。</p>
-            <p class="mondai">너무 <u>슬퍼서</u> 아무말도 못 했어요.</p>
+        <div id="main-container">
+
+            <div id="main-container-question">
+            <div id="template-container">
+                <template id="template-questions">
+                    <div style="display: none; height: 100%;">
+                        <div id="questions">
+                            <h1 class="number">第<span id="question-number"></span>問</h1>
+                            <h1 class="rev">下線部の動詞、形容詞の辞書形として正しいものを1～4の中からひとつ選びなさい。</h1>
+                            <p><span id="korean-questions"></span></p>
+                        </div>
+                        <div class="answers">
+                            <input type="radio" name="select" class="answer"><span id="ans_A"></span></p>
+                            <input type="radio" name="select" class="answer"><span id="ans_B"></span></p>
+                            <input type="radio" name="select" class="answer"><span id="ans_C"></span></p>
+                            <input type="radio" name="select" class="answer"><span id="ans_D"></span></p>
+                        </div>
+                    </div>
+                </template>
+            </div>
+            <div id="main-question-container">
+            </div>
+            <div id="display-explanation-container">
+                <button id="display-explanation" onclick="display()">回答を確認して次の問題へ</button>
+            </div>
+            <div id="next-question-container">
+                <button id="next-question" onclick="next()" style="display: block;">次の問題へ</button>
+                <button id="last" onclick="last()" style="display: none;">回答を確認する。</button>
+            </div>
+
+            <div id="main-container-trueorfalse">
+                <div id="template-trueorfalse-container">
+                    <template id="trueorfalse-template" style="display: none;">
+                        <h1>第<span id="torf-number"></span>問<div id="torf-mark"></div></h1>
+                        <p>正解       :<span id="torf-korean"></span></p>
+                        <p>あなたの回答:<span id="torf-checked"></span></p>
+                    </template>
+                </div>
+                <div id="trueorfalse-container" style="display: none;"></div>
+                <button id="tosurvey" onclick="location.href='https://docs.google.com/forms/d/e/1FAIpQLSfKBRVZ6XIyTkg6sM5sVwMyCb5s1JlrjXlswOBT07uaP-Tnsg/viewform'" style="display: none;">アンケートに回答する</button>
+                </div>
+            </div>
         </div>
-        <div class="answer">
-            <p class="abc">1.슬프다</p>
-            <p class="def">2.슬퍼서다</p>
-            <p class="ghi">3.슬푸다</p>
-            <p class="jkl">4.슬퍼다</p>
-        </div>
-        <div id="next">
+
+            
 
         </div>
         <script src="test.start.js"></script>
